@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 131.067, 229.822 )
+
+[sub_resource type="Animation" id=22]
+resource_name = "Idle"
+length = 0.001
+
+[node name="FertileSoil" type="Node2D"]
+position = Vector2( -44.0497, 254.954 )
+rotation = -2.28813
+z_index = 11
+script = ExtResource( 1 )
+_item_wanted = "seeds"
+_item_give = "seeds_transit"
+
+[node name="FertileSoilPhysical" type="Node2D" parent="."]
+position = Vector2( 462.246, -612.25 )
+rotation = 0.58294
+z_index = 9
+
+[node name="Sprite" type="Sprite" parent="FertileSoilPhysical"]
+rotation = 2.98023e-08
+hframes = 3
+
+[node name="Area2D" type="Area2D" parent="FertileSoilPhysical" groups=[
+"Day1_Area2D",
+]]
+rotation = 2.98023e-08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FertileSoilPhysical/Area2D"]
+position = Vector2( 35.8302, 21.093 )
+shape = SubResource( 21 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="FertileSoilPhysical"]
+position = Vector2( 147.371, 126.832 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 22 )

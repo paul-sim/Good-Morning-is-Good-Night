@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"FertileSoil", "text":"(soil is fertile here)", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"FertileSoil", "text":"(soil is fertile here)", "animation":""}
+	},
+	"tag" : ""
+}

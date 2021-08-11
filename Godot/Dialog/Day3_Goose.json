@@ -1,0 +1,11 @@
+{
+	"initial" : {
+		"1" : {"name":"Goose", "text":"today we got radish and mushrooms!", "animation":""},
+		"2" : {"name":"Goose", "text":"fresh from huckleberry farm down south!", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Goose", "text":"today we got radish and mushrooms!", "animation":""},
+		"2" : {"name":"Goose", "text":"fresh from huckleberry farm down south!", "animation":""},
+	},
+	"tag" : ""
+}

@@ -1,0 +1,14 @@
+{
+	"initial" : {
+		"1" : {"name":"Crane", "text":"we’ll be getting a bountiful harvest this season", "animation":""},
+		"2" : {"name":"Crane", "text":"hmm?", "animation":""},
+		"3" : {"name":"Crane", "text":"the rice seeds?", "animation":""},
+		"4" : {"name":"Crane", "text":"here! why don’t you try grow one of your own?", "animation":""},
+		"5" : {"name":"Crane", "text":"it’ll take a few days to fully mature though", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Crane", "text":"the rain is so calming", "animation":""},
+		"2" : {"name":"Crane", "text":"it always helps me sleep at night", "animation":""}
+	},
+	"tag" : ""
+}

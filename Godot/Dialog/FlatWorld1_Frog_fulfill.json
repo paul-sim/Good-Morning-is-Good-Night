@@ -1,0 +1,17 @@
+{
+	"initial" : {
+		"1" : {"name":"Frog", "text":"so i once heard about this ancient item..", "animation":""},
+		"2" : {"name":"Frog", "text":"supposedly you can travel across time with it", "animation":""},
+		"3" : {"name":"Frog", "text":"but i doubt such a thing really exists..", "animation":""},
+		"4" : {"name":"Frog", "text":"..!!", "animation":""},
+		"5" : {"name":"Frog", "text":"caught something!", "animation":""},
+		"6" : {"name":"Frog", "text":"hmm..", "animation":""},
+		"7" : {"name":"Frog", "text":"looks like a piece of junk..", "animation":""},
+		"8" : {"name":"Frog", "text":"here you can have it", "animation":""},
+		"9" : {"name":"Frog", "text":"i'm looking for real treasures only..", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Frog", "text":"time travel!", "animation":""}
+	},
+	"tag" : ""
+}

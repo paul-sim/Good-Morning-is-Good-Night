@@ -1,0 +1,970 @@
+[gd_scene load_steps=76 format=2]
+
+[ext_resource path="res://Sprites/Props/planet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Props/Fence_stop.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Props/stall_mon.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Overlay/gray square.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/NPCs/turtle_idle_1-Sheet.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Props/FoodCart_1.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Day.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/Props/Tree_2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Tree_3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Props/House_1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Props/snail_bg.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Props/Ricefield_Dirt.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Props/Wheelbarrow.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Props/Pole_1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Props/VMachine_1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Props/Bike_1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Props/Pole_2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Props/Ricefield_Plants.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Props/Boxes_1.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Props/House_2.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Props/Tree_1.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Props/House_3.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Props/Bridge_BG.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Props/Bush.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Props/Bridge_FG.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Props/Pole_Flipped.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/NPCs/snail_race.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Props/stall_food_mon.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Props/ox_line.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Props/ox_clothes.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/NPCs/butterfly_1-Sheet.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Props/peach_box.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Props/peach_bush_bg.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Props/peach_bush_fg.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/NPCs/frog_1-Sheet-export.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/NPCs/crane_1-Sheet.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/NPCs/ox_mom.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/NPCs/ox_son_1-Sheet.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/NPCs/goose_1-Sheet.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Props/Fence_1.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Props/light_circle.png" type="Texture" id=42]
+[ext_resource path="res://Scenes/firefly2.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Scenes/firefly3.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Scenes/firefly1.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Sprites/NPCs/monkey_mon.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Props/lantern_flags.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Props/lantern_mon.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Props/lantern_bg.png" type="Texture" id=49]
+[ext_resource path="res://Scenes/light.tscn" type="PackedScene" id=50]
+[ext_resource path="res://Sprites/Props/rice_plant_1.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Props/rice_pot.png" type="Texture" id=52]
+[ext_resource path="res://Scripts/dragonfly.gd" type="Script" id=53]
+[ext_resource path="res://Sprites/Props/dragonfly_1-Sheet.png" type="Texture" id=54]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 219.768, 229.822 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CranePhysical/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 164.081, 229.822 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FertileSoilPhysical/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 176.816, 78.4515 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 152.57, 78.4515 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 253.6, 142.497 )
+
+[sub_resource type="Animation" id=34]
+resource_name = "Idle"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TurtlePhysical/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 205.347, 190.912 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 187.939, 121.89 )
+
+[sub_resource type="Animation" id=25]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxPhysical/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 20 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 154.734, 133.114 )
+
+[sub_resource type="Animation" id=27]
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("FrogPhysical/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 205.347, 190.912 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 231.547, 166.139 )
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 270.497, 713.874 )
+
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 350.704, 121.89 )
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 356.461, 114.602 )
+
+[sub_resource type="Animation" id=33]
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Idle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[node name="Day1" type="Node2D"]
+script = ExtResource( 8 )
+_day = 1
+
+[node name="Planet" type="Sprite" parent="."]
+scale = Vector2( 1.333, 1.333 )
+z_index = -10
+texture = ExtResource( 1 )
+
+[node name="Crane" type="Node2D" parent="."]
+rotation = -2.28813
+z_index = 11
+script = ExtResource( 2 )
+
+[node name="CranePhysical" type="Node2D" parent="Crane"]
+position = Vector2( 510.484, -590.052 )
+rotation = 0.58294
+z_index = 9
+
+[node name="Sprite" type="Sprite" parent="Crane/CranePhysical"]
+rotation = 2.98023e-08
+texture = ExtResource( 37 )
+hframes = 3
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="Crane/CranePhysical" groups=[
+"Day1_Area2D",
+]]
+rotation = 2.98023e-08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crane/CranePhysical/Area2D"]
+position = Vector2( 50.3096, 13.9791 )
+shape = SubResource( 1 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="Crane/CranePhysical"]
+position = Vector2( 139.86, -66.4048 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Crane"]
+autoplay = "Idle"
+anims/Idle = SubResource( 2 )
+
+[node name="FertileSoil" type="Node2D" parent="."]
+rotation = 0.5044
+z_index = 11
+script = ExtResource( 2 )
+_interactable_icon_type = 2
+_item_wanted = "seeds"
+_item_give = "seeds_transit"
+
+[node name="FertileSoilPhysical" type="Node2D" parent="FertileSoil"]
+position = Vector2( 269.479, -799.371 )
+rotation = 0.230383
+z_index = 9
+
+[node name="Sprite" type="Sprite" parent="FertileSoil/FertileSoilPhysical"]
+modulate = Color( 1, 1, 1, 0 )
+rotation = 2.98023e-08
+texture = ExtResource( 5 )
+hframes = 3
+
+[node name="Area2D" type="Area2D" parent="FertileSoil/FertileSoilPhysical" groups=[
+"Day1_Area2D",
+]]
+rotation = 2.98023e-08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FertileSoil/FertileSoilPhysical/Area2D"]
+position = Vector2( 22.0097, 35.8478 )
+shape = SubResource( 3 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="FertileSoil/FertileSoilPhysical"]
+position = Vector2( -47.8164, -44.4772 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FertileSoil"]
+anims/Idle = SubResource( 4 )
+
+[node name="Goose" type="Node2D" parent="."]
+rotation = -5.77704
+script = ExtResource( 2 )
+
+[node name="GoosePhysical" type="Node2D" parent="Goose"]
+position = Vector2( 87.1756, -1115.97 )
+z_index = 9
+
+[node name="Sprite" type="Sprite" parent="Goose/GoosePhysical"]
+rotation = 2.98023e-08
+texture = ExtResource( 40 )
+hframes = 3
+
+[node name="Area2D" type="Area2D" parent="Goose/GoosePhysical" groups=[
+"Day1_Area2D",
+]]
+rotation = 2.98023e-08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goose/GoosePhysical/Area2D"]
+position = Vector2( -40.4658, 119.487 )
+shape = SubResource( 5 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="Goose/GoosePhysical"]
+position = Vector2( -97.1989, -150.406 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Goose"]
+autoplay = "Idle"
+
+[node name="Snail" type="Node2D" parent="."]
+rotation = -5.31104
+script = ExtResource( 2 )
+
+[node name="SnailPhysical" type="Node2D" parent="Snail"]
+position = Vector2( 188.706, -1240.37 )
+z_index = 9
+
+[node name="Sprite" type="Sprite" parent="Snail/SnailPhysical"]
+rotation = 2.98023e-08
+texture = ExtResource( 28 )
+
+[node name="Area2D" type="Area2D" parent="Snail/SnailPhysical" groups=[
+"Day1_Area2D",
+]]
+rotation = 2.98023e-08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snail/SnailPhysical/Area2D"]
+position = Vector2( -62.3654, 202.17 )
+shape = SubResource( 21 )
+disabled = true
+
+[node name="SpeechBubblePosition" type="Node2D" parent="Snail/SnailPhysical"]
+position = Vector2( -88.6218, -97.1028 )
+
+[node name="Turtle" type="Node2D" parent="."]
+rotation = -0.378736
+z_index = 12
+script = ExtResource( 2 )
+
+[node name="TurtlePhysical" type="Node2D" parent="Turtle"]
+position = Vector2( -58.7426, -939.66 )
+
+[node name="Sprite" type="Sprite" parent="Turtle/TurtlePhysical"]
+position = Vector2( 3.8253, -2.51208 )
+rotation = 0.0715585
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+hframes = 3
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="Turtle/TurtlePhysical" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turtle/TurtlePhysical/Area2D"]
+position = Vector2( -113.241, 21.022 )
+shape = SubResource( 22 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="Turtle/TurtlePhysical"]
+position = Vector2( 26.8537, -107.567 )
+rotation = 0.506145
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Turtle"]
+autoplay = "Idle"
+anims/Idle = SubResource( 34 )
+
+[node name="VendingMachine" type="Node2D" parent="."]
+rotation = 2.6337
+script = ExtResource( 2 )
+_interactable_icon_type = 2
+
+[node name="VendingMachinePhysical" type="Node2D" parent="VendingMachine"]
+position = Vector2( 3.05176e-05, -1119.47 )
+
+[node name="Sprite" type="Sprite" parent="VendingMachine/VendingMachinePhysical"]
+texture = ExtResource( 16 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="VendingMachine/VendingMachinePhysical" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VendingMachine/VendingMachinePhysical/Area2D"]
+position = Vector2( 3.57727, 139.076 )
+shape = SubResource( 23 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="VendingMachine/VendingMachinePhysical"]
+position = Vector2( -29.3242, 92.8635 )
+rotation = 0.506145
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VendingMachine"]
+autoplay = "Idle"
+
+[node name="Boxes" type="Node2D" parent="."]
+rotation = 2.6337
+script = ExtResource( 2 )
+_interactable_icon_type = 2
+_item_give = "coin"
+
+[node name="BoxPhysical" type="Node2D" parent="Boxes"]
+position = Vector2( -124.899, -897.38 )
+
+[node name="Sprite" type="Sprite" parent="Boxes/BoxPhysical"]
+z_index = 12
+texture = ExtResource( 20 )
+
+[node name="Area2D" type="Area2D" parent="Boxes/BoxPhysical" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/BoxPhysical/Area2D"]
+position = Vector2( 1.27267, 20.893 )
+shape = SubResource( 24 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="Boxes/BoxPhysical"]
+position = Vector2( -6.75995, 72.7419 )
+rotation = 0.506145
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boxes"]
+anims/Idle = SubResource( 25 )
+
+[node name="Frog" type="Node2D" parent="."]
+rotation = 3.91303
+z_index = 11
+script = ExtResource( 2 )
+
+[node name="FrogPhysical" type="Node2D" parent="Frog"]
+position = Vector2( 18.2595, -833.728 )
+
+[node name="Sprite" type="Sprite" parent="Frog/FrogPhysical"]
+texture = ExtResource( 36 )
+hframes = 3
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="Frog/FrogPhysical" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Frog/FrogPhysical/Area2D"]
+position = Vector2( 24.752, -52.3717 )
+shape = SubResource( 26 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="Frog/FrogPhysical"]
+position = Vector2( 89.694, 12.8687 )
+rotation = 0.506145
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Frog"]
+autoplay = "Idle"
+anims/Idle = SubResource( 27 )
+
+[node name="Monkey" type="Node2D" parent="."]
+rotation = 3.2149
+z_index = 11
+script = ExtResource( 2 )
+_item_wanted = "drink"
+_item_give = "peaches"
+
+[node name="MonkeyPhysical" type="Node2D" parent="Monkey"]
+position = Vector2( -15.1121, -770.213 )
+
+[node name="Sprite" type="Sprite" parent="Monkey/MonkeyPhysical"]
+texture = ExtResource( 46 )
+
+[node name="Area2D" type="Area2D" parent="Monkey/MonkeyPhysical" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monkey/MonkeyPhysical/Area2D"]
+position = Vector2( 17.5803, -116.751 )
+shape = SubResource( 28 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="Monkey/MonkeyPhysical"]
+position = Vector2( 6.36801, 55.7845 )
+rotation = 0.506145
+
+[node name="OxMom" type="Node2D" parent="."]
+rotation = 1.70344
+z_index = 2
+script = ExtResource( 2 )
+
+[node name="OxMomPhysical" type="Node2D" parent="OxMom"]
+position = Vector2( 282.759, -1034.67 )
+rotation = 0.232129
+
+[node name="Sprite" type="Sprite" parent="OxMom/OxMomPhysical"]
+texture = ExtResource( 38 )
+
+[node name="Area2D" type="Area2D" parent="OxMom/OxMomPhysical" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OxMom/OxMomPhysical/Area2D"]
+position = Vector2( 39.007, -12.1541 )
+shape = SubResource( 29 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="OxMom/OxMomPhysical"]
+position = Vector2( -168.477, -50.512 )
+rotation = 0.506145
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="Fence" type="Node2D" parent="Wall"]
+position = Vector2( 0, -1000 )
+
+[node name="Sprite" type="Sprite" parent="Wall/Fence"]
+position = Vector2( 1.32068, -940.348 )
+z_index = 11
+texture = ExtResource( 3 )
+
+[node name="StopRight_Area2D" type="Area2D" parent="Wall/Fence/Sprite"]
+scale = Vector2( 0.233969, 0.233969 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Fence/Sprite/StopRight_Area2D"]
+shape = SubResource( 30 )
+
+[node name="FenceErectHolder" type="Node2D" parent="Wall"]
+position = Vector2( -978.803, -6.72705 )
+
+[node name="FenceErect_Area2D" type="Area2D" parent="Wall/FenceErectHolder" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/FenceErectHolder/FenceErect_Area2D"]
+shape = SubResource( 31 )
+
+[node name="DoorErectHolder" type="Node2D" parent="Wall"]
+position = Vector2( 1005.71, -10.0906 )
+
+[node name="DoorErect_Area2D" type="Area2D" parent="Wall/DoorErectHolder" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/DoorErectHolder/DoorErect_Area2D"]
+shape = SubResource( 32 )
+
+[node name="StaticProps" type="Node2D" parent="."]
+
+[node name="Tree_2" type="Sprite" parent="StaticProps"]
+position = Vector2( -286.114, -1083.2 )
+texture = ExtResource( 9 )
+
+[node name="Tree_7" type="Sprite" parent="StaticProps"]
+position = Vector2( -1044.9, -408.935 )
+rotation = -1.0472
+z_index = -11
+texture = ExtResource( 9 )
+
+[node name="Tree_3" type="Sprite" parent="StaticProps"]
+position = Vector2( 250.661, -1131.02 )
+texture = ExtResource( 10 )
+
+[node name="stall_mon" type="Sprite" parent="StaticProps"]
+position = Vector2( 526.56, -977.06 )
+rotation = 0.488692
+texture = ExtResource( 4 )
+
+[node name="stall_food_mon" type="Sprite" parent="StaticProps"]
+position = Vector2( 472.058, -978.748 )
+rotation = 0.488692
+texture = ExtResource( 29 )
+
+[node name="Tree_5" type="Sprite" parent="StaticProps"]
+position = Vector2( 704.977, -872.529 )
+rotation = 0.825541
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="House_1" type="Sprite" parent="StaticProps"]
+position = Vector2( 897.463, -711.318 )
+rotation = 0.907571
+texture = ExtResource( 11 )
+
+[node name="snail_bg" type="Sprite" parent="StaticProps"]
+position = Vector2( 1126.73, -576.849 )
+rotation = 1.02451
+texture = ExtResource( 12 )
+
+[node name="Fence_1" type="Sprite" parent="StaticProps"]
+position = Vector2( -937.983, 316.326 )
+rotation = -1.84481
+z_index = -20
+texture = ExtResource( 41 )
+
+[node name="Fence_4" type="Sprite" parent="StaticProps"]
+position = Vector2( -557.985, 826.031 )
+rotation = 3.83623
+z_index = -20
+texture = ExtResource( 41 )
+
+[node name="Pole_3" type="Sprite" parent="StaticProps"]
+position = Vector2( -1229.38, -329.096 )
+rotation = -1.35438
+texture = ExtResource( 15 )
+
+[node name="Ricefield_Dirt" type="Sprite" parent="StaticProps"]
+position = Vector2( -703.523, 95.7639 )
+rotation = -1.68424
+texture = ExtResource( 13 )
+
+[node name="firefly1" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 45 )]
+position = Vector2( 58.1579, -48.4081 )
+
+[node name="firefly2" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 43 )]
+position = Vector2( -99.6494, 16.5496 )
+
+[node name="firefly3" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 44 )]
+position = Vector2( 95.4813, 37.8076 )
+
+[node name="Ricefield_Dirt3" type="Sprite" parent="StaticProps"]
+position = Vector2( -703.523, 95.7639 )
+rotation = -1.68424
+texture = ExtResource( 19 )
+
+[node name="rice_pot" type="Sprite" parent="StaticProps"]
+position = Vector2( 611.193, -528.055 )
+rotation = 0.865683
+texture = ExtResource( 52 )
+
+[node name="rice_plant_1" type="Sprite" parent="StaticProps"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 637.926, -549.545 )
+rotation = 0.865683
+texture = ExtResource( 51 )
+
+[node name="Wheelbarrow" type="Sprite" parent="StaticProps"]
+position = Vector2( -722.907, -200.458 )
+rotation = -1.5132
+texture = ExtResource( 14 )
+
+[node name="Fence_3" type="Sprite" parent="StaticProps"]
+position = Vector2( 871.536, 460.964 )
+rotation = 2.1485
+z_index = -20
+texture = ExtResource( 41 )
+
+[node name="Pole_1" type="Sprite" parent="StaticProps"]
+position = Vector2( 986.578, 675.703 )
+rotation = 2.05774
+texture = ExtResource( 15 )
+
+[node name="Bike_1" type="Sprite" parent="StaticProps"]
+position = Vector2( -1009.08, -197.008 )
+rotation = -1.42768
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Pole_2" type="Sprite" parent="StaticProps"]
+position = Vector2( 840.252, 759.166 )
+rotation = 2.05774
+z_index = 11
+texture = ExtResource( 18 )
+
+[node name="Bush17" type="Sprite" parent="StaticProps"]
+position = Vector2( 309.744, 232.349 )
+rotation = 1.97746
+texture = ExtResource( 25 )
+
+[node name="House" type="Sprite" parent="StaticProps"]
+position = Vector2( 298.488, 1100.62 )
+rotation = 2.8763
+z_index = -21
+texture = ExtResource( 11 )
+
+[node name="Tree_2_2" type="Sprite" parent="StaticProps"]
+position = Vector2( 107.515, 1120.18 )
+rotation = -3.02466
+texture = ExtResource( 9 )
+
+[node name="peach_bush_bg" type="Sprite" parent="StaticProps"]
+position = Vector2( -112.389, 1049.35 )
+rotation = 3.25853
+texture = ExtResource( 34 )
+
+[node name="peach_bush_fg" type="Sprite" parent="StaticProps"]
+position = Vector2( -40.8918, 995.59 )
+rotation = 3.2149
+z_index = 1
+texture = ExtResource( 35 )
+
+[node name="peach_box" type="Sprite" parent="StaticProps"]
+position = Vector2( -47.2942, 1024.07 )
+rotation = -3.04909
+texture = ExtResource( 33 )
+
+[node name="Tree_1" type="Sprite" parent="StaticProps"]
+position = Vector2( -674.939, 908.365 )
+rotation = -2.43648
+texture = ExtResource( 22 )
+flip_h = true
+
+[node name="Tree_4" type="Sprite" parent="StaticProps"]
+position = Vector2( -951.911, 628.868 )
+rotation = 4.25686
+texture = ExtResource( 22 )
+
+[node name="Pole_Flipped" type="Sprite" parent="StaticProps"]
+position = Vector2( -542.834, 1157.68 )
+rotation = 3.60061
+z_index = -1
+texture = ExtResource( 27 )
+
+[node name="Bridge_BG" type="Sprite" parent="StaticProps"]
+visible = false
+position = Vector2( -567.619, 523.652 )
+rotation = -2.2794
+texture = ExtResource( 24 )
+
+[node name="Bridge_FG" type="Sprite" parent="StaticProps"]
+position = Vector2( -533.899, 572.192 )
+rotation = -2.2794
+texture = ExtResource( 26 )
+
+[node name="firefly1" parent="StaticProps/Bridge_FG" instance=ExtResource( 45 )]
+
+[node name="firefly2" parent="StaticProps/Bridge_FG" instance=ExtResource( 43 )]
+
+[node name="firefly3" parent="StaticProps/Bridge_FG" instance=ExtResource( 44 )]
+
+[node name="Bush" type="Sprite" parent="StaticProps"]
+position = Vector2( 491.744, -631.651 )
+rotation = 0.581195
+texture = ExtResource( 25 )
+
+[node name="Bush16" type="Sprite" parent="StaticProps"]
+position = Vector2( 370.102, -287.322 )
+rotation = 1.27933
+texture = ExtResource( 25 )
+
+[node name="Bush5" type="Sprite" parent="StaticProps"]
+position = Vector2( 710.077, 706.231 )
+rotation = 2.20959
+texture = ExtResource( 25 )
+
+[node name="Bush18" type="Sprite" parent="StaticProps"]
+position = Vector2( 755.619, 616.516 )
+rotation = 2.20959
+texture = ExtResource( 25 )
+
+[node name="Bush6" type="Sprite" parent="StaticProps"]
+position = Vector2( -16.2556, 506.349 )
+rotation = 3.02466
+texture = ExtResource( 25 )
+
+[node name="Bush7" type="Sprite" parent="StaticProps"]
+position = Vector2( 91.7444, 236.349 )
+rotation = 2.67559
+texture = ExtResource( 25 )
+
+[node name="Bush3" type="Sprite" parent="StaticProps"]
+position = Vector2( 227.744, -645.651 )
+rotation = 0.232129
+texture = ExtResource( 25 )
+
+[node name="Bush2" type="Sprite" parent="StaticProps"]
+position = Vector2( -290.677, 611.225 )
+rotation = 3.72279
+texture = ExtResource( 25 )
+
+[node name="Bush19" type="Sprite" parent="StaticProps"]
+position = Vector2( -308.677, 978.225 )
+rotation = 3.4575
+texture = ExtResource( 25 )
+
+[node name="Bush8" type="Sprite" parent="StaticProps"]
+position = Vector2( -434.677, 327.638 )
+rotation = 4.18879
+texture = ExtResource( 25 )
+
+[node name="Bush20" type="Sprite" parent="StaticProps"]
+position = Vector2( -982.33, 318.113 )
+rotation = 4.34762
+texture = ExtResource( 25 )
+
+[node name="Bush21" type="Sprite" parent="StaticProps"]
+position = Vector2( -1030.19, 8.88843 )
+rotation = 4.62687
+texture = ExtResource( 25 )
+
+[node name="House_2" type="Sprite" parent="StaticProps"]
+position = Vector2( 1213.55, -191.398 )
+rotation = 1.44688
+texture = ExtResource( 21 )
+
+[node name="OxSon" type="Sprite" parent="StaticProps"]
+position = Vector2( 669.91, -226.147 )
+rotation = -4.73333
+z_index = 11
+texture = ExtResource( 39 )
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/OxSon"]
+autoplay = "Idle"
+anims/Idle = SubResource( 33 )
+
+[node name="ox_line" type="Sprite" parent="StaticProps"]
+position = Vector2( 1048.06, 199.425 )
+rotation = 1.66679
+texture = ExtResource( 30 )
+
+[node name="ox_clothes" type="Sprite" parent="StaticProps"]
+position = Vector2( 1039.65, 195.221 )
+rotation = 1.66679
+texture = ExtResource( 31 )
+
+[node name="ox_butterfly_static" type="Sprite" parent="StaticProps"]
+position = Vector2( 780.777, -139.421 )
+rotation = -4.73333
+z_index = 11
+texture = ExtResource( 32 )
+hframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/ox_butterfly_static"]
+autoplay = "Idle"
+anims/Idle = SubResource( 19 )
+
+[node name="House_3" type="Sprite" parent="StaticProps"]
+position = Vector2( -948.031, -649.726 )
+rotation = -0.989602
+texture = ExtResource( 23 )
+
+[node name="Pole_Flipped2" type="Sprite" parent="StaticProps"]
+position = Vector2( -904.303, -896.308 )
+rotation = -0.804597
+z_index = -1
+texture = ExtResource( 27 )
+
+[node name="Bush4" type="Sprite" parent="StaticProps"]
+position = Vector2( -347.114, -678.589 )
+rotation = -0.472984
+z_index = 12
+texture = ExtResource( 25 )
+
+[node name="Bush9" type="Sprite" parent="StaticProps"]
+position = Vector2( -499.114, -466.589 )
+rotation = -1.05418
+texture = ExtResource( 25 )
+
+[node name="Bush10" type="Sprite" parent="StaticProps"]
+position = Vector2( -358.436, -304.387 )
+rotation = -1.28631
+texture = ExtResource( 25 )
+
+[node name="Bush11" type="Sprite" parent="StaticProps"]
+position = Vector2( -578.308, -37.8947 )
+rotation = -1.51844
+texture = ExtResource( 25 )
+
+[node name="Bush15" type="Sprite" parent="StaticProps"]
+position = Vector2( -246.064, 45.1662 )
+rotation = -1.97048
+texture = ExtResource( 25 )
+
+[node name="Bush14" type="Sprite" parent="StaticProps"]
+position = Vector2( -959.269, -357.962 )
+rotation = -1.16937
+scale = Vector2( 0.8, 0.8 )
+z_index = 1
+texture = ExtResource( 25 )
+
+[node name="Bush12" type="Sprite" parent="StaticProps"]
+position = Vector2( 5.6123, -383.164 )
+rotation = -0.00523599
+texture = ExtResource( 25 )
+
+[node name="Bush13" type="Sprite" parent="StaticProps"]
+position = Vector2( 187.041, -118.581 )
+rotation = 1.39103
+texture = ExtResource( 25 )
+
+[node name="FoodCart_1" type="Sprite" parent="StaticProps"]
+position = Vector2( -386, -833.98 )
+rotation = -0.349066
+z_index = 11
+texture = ExtResource( 7 )
+
+[node name="Light2D" type="Light2D" parent="StaticProps/FoodCart_1"]
+position = Vector2( -124.602, -36.9489 )
+scale = Vector2( 0.867207, 0.867207 )
+texture = ExtResource( 42 )
+color = Color( 1, 0.670588, 0.0392157, 1 )
+energy = 0.27
+
+[node name="Fence_2" type="Sprite" parent="StaticProps"]
+position = Vector2( -406.545, -905.468 )
+rotation = -0.319395
+z_index = -11
+texture = ExtResource( 41 )
+
+[node name="Lantern" type="Node2D" parent="StaticProps"]
+position = Vector2( -579.583, -901.042 )
+rotation = -0.42237
+
+[node name="Sprite2" type="Sprite" parent="StaticProps/Lantern"]
+texture = ExtResource( 49 )
+
+[node name="Sprite3" type="Sprite" parent="StaticProps/Lantern"]
+position = Vector2( 4.10513, -77.3916 )
+texture = ExtResource( 47 )
+
+[node name="Sprite" type="Sprite" parent="StaticProps/Lantern"]
+position = Vector2( -0.209625, -84.7115 )
+texture = ExtResource( 48 )
+
+[node name="light" parent="StaticProps/Lantern" instance=ExtResource( 50 )]
+
+[node name="light2" type="Sprite" parent="StaticProps/Lantern"]
+modulate = Color( 1, 0.670588, 0.0392157, 0.435294 )
+position = Vector2( 132.58, -74.9174 )
+scale = Vector2( 0.406746, 0.406746 )
+texture = ExtResource( 42 )
+
+[node name="dragonfly" type="Node2D" parent="StaticProps"]
+rotation = 2.11359
+script = ExtResource( 53 )
+
+[node name="Sprite" type="Sprite" parent="StaticProps/dragonfly"]
+position = Vector2( -1330, 0 )
+rotation = -1.46084
+z_index = 20
+texture = ExtResource( 54 )
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/dragonfly/Sprite"]
+autoplay = "Idle"
+anims/Idle = SubResource( 20 )
+
+[node name="dragonfly2" type="Node2D" parent="StaticProps"]
+rotation = -0.0959931
+script = ExtResource( 53 )
+
+[node name="Sprite" type="Sprite" parent="StaticProps/dragonfly2"]
+position = Vector2( -1330, 0 )
+rotation = -1.46084
+z_index = 20
+texture = ExtResource( 54 )
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/dragonfly2/Sprite"]
+autoplay = "Idle"
+anims/Idle = SubResource( 20 )
+[connection signal="animation_finished" from="VendingMachine/AnimationPlayer" to="VendingMachine" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Boxes/AnimationPlayer" to="Boxes" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="Wall/Fence/Sprite/StopRight_Area2D" to="." method="_on_StopRight_Area2D_area_entered"]
+[connection signal="area_exited" from="Wall/Fence/Sprite/StopRight_Area2D" to="." method="_on_StopRight_Area2D_area_exited"]
+[connection signal="area_entered" from="Wall/FenceErectHolder/FenceErect_Area2D" to="." method="_on_FenceErect_Area2D_area_entered"]
+[connection signal="area_entered" from="Wall/DoorErectHolder/DoorErect_Area2D" to="." method="_on_DoorErect_Area2D_area_entered"]

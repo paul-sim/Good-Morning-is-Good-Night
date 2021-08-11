@@ -1,0 +1,10 @@
+{
+	"initial" : {
+		"1" : {"name":"OxMom", "text":"dearie me! all the rain got in", "animation":""},
+		"2" : {"name":"OxMom", "text":"it’s going to take all day to clean up this mess", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"OxMom", "text":"i can’t believe i was so silly", "animation":""}
+	},
+	"tag" : ""
+}

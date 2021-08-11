@@ -1,0 +1,11 @@
+{
+	"initial" : {
+		"1" : {"name":"Goose", "text":"today we got potatoes and bok choy", "animation":""},
+		"2" : {"name":"Goose", "text":"specially imported from across the river!", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Goose", "text":"today we got potatoes and bok choy", "animation":""},
+		"2" : {"name":"Goose", "text":"specially imported from across the river!", "animation":""},
+	},
+	"tag" : ""
+}

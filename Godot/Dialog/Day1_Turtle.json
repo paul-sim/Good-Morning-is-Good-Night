@@ -1,0 +1,10 @@
+{
+	"initial" : {
+		"1" : {"name":"Turtle", "text":"lots of customer today!", "animation":""},
+		"2" : {"name":"Turtle", "text":"makes me happy when i can cook for them!", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Turtle", "text":"i wonder if frog will come by again..", "animation":""}
+	},
+	"tag" : ""
+}

@@ -1,0 +1,10 @@
+{
+	"initial" : {
+		"1" : {"name":"Goose", "text":"i think you should go see turtle", "animation":""},
+		"2" : {"name":"Goose", "text":"he seemed a little down", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Goose", "text":"you can find him down this road", "animation":""}
+	},
+	"tag" : ""
+}

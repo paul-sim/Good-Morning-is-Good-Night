@@ -1,0 +1,10 @@
+{
+	"initial" : {
+		"1" : {"name":"OxMom", "text":"what a lovely day!", "animation":""},
+		"2" : {"name":"OxMom", "text":"i hope tomorrow is nice and warm again", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"OxMom", "text":"gotta start prepping for dinner", "animation":""}
+	},
+	"tag" : ""
+}

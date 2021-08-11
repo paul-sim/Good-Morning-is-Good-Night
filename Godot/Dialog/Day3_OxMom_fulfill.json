@@ -1,0 +1,12 @@
+{
+	"initial" : {
+		"1" : {"name":"OxMom", "text":"did you shut my windows yesterday?", "animation":""},
+		"2" : {"name":"OxMom", "text":"thanks to you, they kept the rain out!", "animation":""},
+		"3" : {"name":"OxMom", "text":"take this", "animation":""},
+		"4" : {"name":"OxMom", "text":"my own special sauce for all occasions!", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"OxMom", "text":"i'll be off now dear", "animation":""}
+	},
+	"tag" : ""
+}

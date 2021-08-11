@@ -1,0 +1,6 @@
+
+
+- when you duplicate world, check the following:
+	- your day object's day is changed to the correct day via inspector
+	- all your area2Ds in the day are assigned the correct group
+	

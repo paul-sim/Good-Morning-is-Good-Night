@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"Snail", "text":"it’s a tight race!", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Snail", "text":"i don’t know who’s going to win this!", "animation":""}
+	},
+	"tag" : ""
+}

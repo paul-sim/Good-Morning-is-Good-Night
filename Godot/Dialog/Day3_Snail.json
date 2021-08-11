@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"Snail", "text":"i finally did it!", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Snail", "text":"i win!", "animation":""}
+	},
+	"tag" : ""
+}

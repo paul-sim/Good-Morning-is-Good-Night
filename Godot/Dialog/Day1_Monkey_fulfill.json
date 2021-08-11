@@ -1,0 +1,12 @@
+{
+	"initial" : {
+		"1" : {"name":"Monkey", "text":"huh?", "animation":""},
+		"2" : {"name":"Monkey", "text":"peach soda?", "animation":""},
+		"3" : {"name":"Monkey", "text":"sure! and you can have my peaches", "animation":""},
+		"4" : {"name":"Monkey", "text":"i guess i won't eat all of them", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Monkey", "text":"woohoo peach soda!", "animation":""},
+	},
+	"tag" : ""
+}

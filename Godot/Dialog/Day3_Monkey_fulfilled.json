@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"Monkey", "text":"you got anymore soda!?", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Monkey", "text":"wahh...we’re hungry...hehe", "animation":""},
+	},
+	"tag" : ""
+}

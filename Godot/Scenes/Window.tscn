@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Overlay/gray square.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 215.744, 214.084 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "Idle"
+length = 0.001
+
+[node name="Window" type="Node2D"]
+rotation = 1.63886
+z_index = 2
+script = ExtResource( 1 )
+_interactable_icon_type = 2
+_item_give = "ox_favor"
+
+[node name="WindowPhysical" type="Node2D" parent="."]
+position = Vector2( -387.065, -1194.71 )
+rotation = -0.178024
+
+[node name="Sprite" type="Sprite" parent="WindowPhysical"]
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="WindowPhysical" groups=[
+"Day1_Area2D",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindowPhysical/Area2D"]
+position = Vector2( 77.2658, 313.83 )
+shape = SubResource( 14 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="WindowPhysical"]
+position = Vector2( -100.384, -48.6858 )
+rotation = 0.506145
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 15 )

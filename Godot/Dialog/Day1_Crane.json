@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"Crane", "text":"isn't it lovely today?", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Crane", "text":"gotta plant a few more seeds..", "animation":""}
+	},
+	"tag" : ""
+}

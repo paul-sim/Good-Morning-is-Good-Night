@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"Window", "text":"(windows closed)", "animation":"Idle"},
+	},
+	"loop" : {
+		"1" : {"name":"Window", "text":"(windows closed)", "animation":"Idle"}
+	},
+	"tag" : ""
+}

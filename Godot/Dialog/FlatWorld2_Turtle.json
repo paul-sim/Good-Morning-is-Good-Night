@@ -1,0 +1,10 @@
+{
+	"initial" : {
+		"1" : {"name":"Turtle", "text":"this is the end", "animation":""},
+		"2" : {"name":"Turtle", "text":"good bye", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Turtle", "text":"bye!", "animation":""}
+	},
+	"tag" : ""
+}

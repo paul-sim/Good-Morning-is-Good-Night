@@ -1,0 +1,21 @@
+
+
+
+
+
+
+replace door with fence/wall when you're at opposite ends of time
+
+for receiving items, use animation. let it appear over you head in the middle of conversation
+
+
+things i need from viv:
+
+- dialog available icon
+- flat background
+- day sign for left of door
+- sprite alts/anims for chars
+- bird
+- seed growth sprite
+- hills for the flat world
+- dragonfly

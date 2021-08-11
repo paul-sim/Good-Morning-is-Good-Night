@@ -1,0 +1,11 @@
+{
+	"initial" : {
+		"1" : {"name":"VendingMachine", "text":"\"out of order\"", "animation":""},
+		"2" : {"name":"VendingMachine", "text":"\"operates once a week\"", "animation":""}
+	},
+	"loop" : {
+		"1" : {"name":"VendingMachine", "text":"\"out of order\"", "animation":""},
+		"2" : {"name":"VendingMachine", "text":"\"operates once a week\"", "animation":""}
+	},
+	"tag" : ""
+}

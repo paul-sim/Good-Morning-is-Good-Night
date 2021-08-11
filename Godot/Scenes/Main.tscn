@@ -1,0 +1,689 @@
+[gd_scene load_steps=57 format=2]
+
+[ext_resource path="res://Sprites/Player/Rabbit_Run_Idle.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Props/planet.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/DialogManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Planet.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Sky.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/Props/Clouds.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Overlay/sepia_overlay1.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/InteractableManager.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/DayManager.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/SceneManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites/Overlay/gray square.png" type="Texture" id=13]
+[ext_resource path="res://Materials/Blur.tres" type="Material" id=14]
+[ext_resource path="res://Sprites/Props/Day_Sky.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Props/Sun.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Props/Moon.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Props/Door_bg.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Props/light_circle.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Props/Night_Sky.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Props/Hill.png" type="Texture" id=21]
+[ext_resource path="res://Scripts/Inventory.gd" type="Script" id=22]
+[ext_resource path="res://Sprites/Props/Door_Forward_Sheet.png" type="Texture" id=23]
+[ext_resource path="res://Scripts/Door.gd" type="Script" id=24]
+[ext_resource path="res://Scenes/Day1.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Day3.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Day2.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Sprites/Props/raindrop.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Props/Door_fg.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Props/Door_Backward_Sheet.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Props/stars.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Props/drink.png" type="Texture" id=32]
+[ext_resource path="res://Scenes/AudioController.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Sprites/Props/Rabbit_1.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Props/thinking_1.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Props/thought_1.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Props/thought_2.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Props/thinking_2.png" type="Texture" id=38]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 6, 7, 6, 9 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.72
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4, 5, 6, 7, 8, 0, 1 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 44.7419
+height = 75.303
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 48.5982
+height = 90.7568
+
+[sub_resource type="Animation" id=7]
+resource_name = "Idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -100 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "ObtainItem"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -200 ), Vector2( 0, -200 ), Vector2( 0, -150 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Idle"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 7.1, 7.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../thought:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Thinking"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 35 ), ExtResource( 38 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../thought:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ), ExtResource( 37 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../thought:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("door_open_backward:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("door_open_backward:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("door_open_backward:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("door_open_forward:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.1, 0 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("door_open_backward:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 4, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("door_open_backward:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("door_open_forward:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("door_open_forward:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 4, 3, 2, 1, 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("door_open_backward:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 6.12939, 94.3094 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 2
+emission_box_extents = Vector3( 1500, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 116.25
+gravity = Vector3( -40, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 0.5
+color = Color( 0.592157, 0.784314, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 10, 132.605 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 10, 132.605 )
+
+[node name="Main" type="Node2D"]
+
+[node name="SepiaOverlay" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( -157.043, 81.1316 )
+scale = Vector2( 520.441, 520.441 )
+z_index = 100
+texture = ExtResource( 9 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 6 )
+noise = SubResource( 1 )
+
+[node name="AudioController" parent="." instance=ExtResource( 33 )]
+
+[node name="Planet" type="Node2D" parent="."]
+z_index = -10
+script = ExtResource( 4 )
+
+[node name="Planet_Sprite" type="Sprite" parent="Planet"]
+scale = Vector2( 1.333, 1.333 )
+texture = ExtResource( 2 )
+
+[node name="Background" type="Node2D" parent="Planet"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Planet/Background"]
+layer = -99
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Planet/Background/ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+
+[node name="Sprite" type="Sprite" parent="Planet/Background/ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 21 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Planet/Background"]
+layer = -99
+follow_viewport_enable = true
+
+[node name="TextureRect" type="TextureRect" parent="Planet/Background/CanvasLayer"]
+material = ExtResource( 14 )
+margin_left = -2559.0
+margin_top = -1832.0
+margin_right = 2415.0
+margin_bottom = 1851.0
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="Node2D" parent="."]
+rotation = 3.63378
+z_index = 10
+script = ExtResource( 5 )
+
+[node name="PlayerPhysical" type="Node2D" parent="Player"]
+position = Vector2( 0, -998.829 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Player/PlayerPhysical"]
+
+[node name="Sprite" type="Sprite" parent="Player/PlayerPhysical/KinematicBody2D"]
+texture = ExtResource( 1 )
+hframes = 10
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/PlayerPhysical/KinematicBody2D/Sprite"]
+autoplay = "Idle"
+anims/Idle = SubResource( 2 )
+anims/OpenDoor = SubResource( 3 )
+anims/Run = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerPhysical/KinematicBody2D"]
+position = Vector2( 12.4867, 11.2975 )
+shape = SubResource( 5 )
+
+[node name="Player_Area2D" type="Area2D" parent="Player/PlayerPhysical"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerPhysical/Player_Area2D"]
+shape = SubResource( 6 )
+
+[node name="SpeechBubblePosition" type="Node2D" parent="Player/PlayerPhysical"]
+position = Vector2( 0, -202.656 )
+
+[node name="Item" type="Sprite" parent="Player/PlayerPhysical"]
+modulate = Color( 1, 1, 1, 0 )
+z_index = 15
+texture = ExtResource( 32 )
+offset = Vector2( 0, -100 )
+
+[node name="Item_AnimationPlayer" type="AnimationPlayer" parent="Player/PlayerPhysical/Item"]
+autoplay = "Idle"
+anims/Idle = SubResource( 7 )
+anims/ObtainItem = SubResource( 8 )
+
+[node name="confused_sprite" type="Sprite" parent="Player/PlayerPhysical"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -186.346 )
+texture = ExtResource( 34 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/PlayerPhysical/confused_sprite"]
+autoplay = "Idle"
+anims/Idle = SubResource( 16 )
+
+[node name="thought" type="Sprite" parent="Player/PlayerPhysical"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -230.085 )
+texture = ExtResource( 36 )
+
+[node name="thinking" type="Sprite" parent="Player/PlayerPhysical"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -251.07 )
+texture = ExtResource( 35 )
+
+[node name="Thinking_AnimationPlayer" type="AnimationPlayer" parent="Player/PlayerPhysical/thinking"]
+autoplay = "Idle"
+anims/Idle = SubResource( 17 )
+anims/Thinking = SubResource( 18 )
+
+[node name="Inventory" type="Node2D" parent="Player"]
+script = ExtResource( 22 )
+
+[node name="InteractableManager" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="DialogManager" parent="." instance=ExtResource( 3 )]
+z_index = 20
+
+[node name="Door" type="Node2D" parent="."]
+script = ExtResource( 24 )
+
+[node name="DoorPhysical" type="Node2D" parent="Door"]
+position = Vector2( -120.381, -896.466 )
+
+[node name="DoorSprite" type="Node2D" parent="Door/DoorPhysical"]
+
+[node name="door_bg" type="Sprite" parent="Door/DoorPhysical/DoorSprite"]
+position = Vector2( 108.217, -140.893 )
+texture = ExtResource( 18 )
+
+[node name="door_open_forward" type="Sprite" parent="Door/DoorPhysical/DoorSprite"]
+position = Vector2( 173.587, -139.314 )
+texture = ExtResource( 23 )
+hframes = 5
+
+[node name="door_open_backward" type="Sprite" parent="Door/DoorPhysical/DoorSprite"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 47.5784, -130.637 )
+texture = ExtResource( 30 )
+hframes = 5
+
+[node name="door_fg" type="Sprite" parent="Door/DoorPhysical/DoorSprite"]
+position = Vector2( 116.541, -138.515 )
+z_index = 20
+texture = ExtResource( 29 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door/DoorPhysical/DoorSprite"]
+autoplay = "Idle"
+anims/Idle = SubResource( 9 )
+anims/OpenBackward = SubResource( 10 )
+anims/OpenForward = SubResource( 11 )
+
+[node name="Forward_Area2D" type="Area2D" parent="Door/DoorPhysical"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/DoorPhysical/Forward_Area2D"]
+position = Vector2( 34.4921, -75.4185 )
+shape = SubResource( 12 )
+
+[node name="Backward_Area2D" type="Area2D" parent="Door/DoorPhysical"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/DoorPhysical/Backward_Area2D"]
+position = Vector2( 195.891, -75.9778 )
+shape = SubResource( 12 )
+
+[node name="DayManager" type="Node2D" parent="."]
+script = ExtResource( 11 )
+
+[node name="Day1" parent="DayManager" instance=ExtResource( 25 )]
+
+[node name="Day2" parent="DayManager" instance=ExtResource( 27 )]
+
+[node name="Rain" type="Node2D" parent="DayManager/Day2"]
+
+[node name="Particles2D" type="Particles2D" parent="DayManager/Day2/Rain"]
+position = Vector2( 403.76, -2564.59 )
+z_index = 20
+amount = 500
+lifetime = 8.0
+preprocess = 5.0
+speed_scale = 2.0
+visibility_rect = Rect2( -1800, -100, 3000, 3000 )
+process_material = SubResource( 13 )
+texture = ExtResource( 28 )
+
+[node name="Day3" parent="DayManager" instance=ExtResource( 26 )]
+
+[node name="SceneManager" parent="." instance=ExtResource( 12 )]
+
+[node name="Sky" type="Node2D" parent="."]
+z_index = -11
+script = ExtResource( 7 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Sky"]
+layer = -101
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Sky/ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1080, 1080 )
+
+[node name="Clouds_Sprite" type="Sprite" parent="Sky/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 567.15, -87.2204 )
+texture = ExtResource( 8 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Sky/ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1080, 1080 )
+
+[node name="Stars_Sprite" type="Sprite" parent="Sky/ParallaxBackground/ParallaxLayer2"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 246.124, -119.245 )
+texture = ExtResource( 31 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Sky"]
+layer = -102
+follow_viewport_enable = true
+
+[node name="Sun" type="Node2D" parent="Sky/CanvasLayer"]
+position = Vector2( -340.912, 0 )
+
+[node name="SunPhysical" type="Node2D" parent="Sky/CanvasLayer/Sun"]
+position = Vector2( 0, -2039.76 )
+
+[node name="Sprite" type="Sprite" parent="Sky/CanvasLayer/Sun/SunPhysical"]
+texture = ExtResource( 16 )
+
+[node name="orbit reference" type="Sprite" parent="Sky/CanvasLayer"]
+visible = false
+position = Vector2( -340.164, 0 )
+scale = Vector2( 2.74108, 2.74108 )
+texture = ExtResource( 2 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Sky"]
+layer = -100
+follow_viewport_enable = true
+
+[node name="Moon" type="Node2D" parent="Sky/CanvasLayer2"]
+position = Vector2( 340.912, 0 )
+
+[node name="MoonPhysical" type="Node2D" parent="Sky/CanvasLayer2/Moon"]
+position = Vector2( 0, -2039.76 )
+
+[node name="Sprite" type="Sprite" parent="Sky/CanvasLayer2/Moon/MoonPhysical"]
+texture = ExtResource( 17 )
+
+[node name="Light2D" type="Light2D" parent="Sky/CanvasLayer2/Moon/MoonPhysical"]
+visible = false
+scale = Vector2( 1.0265, 1.0265 )
+texture = ExtResource( 19 )
+
+[node name="Light" type="Sprite" parent="Sky/CanvasLayer2/Moon/MoonPhysical"]
+modulate = Color( 1, 1, 1, 0.27451 )
+texture = ExtResource( 19 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="Sky"]
+layer = -104
+
+[node name="DaySky" type="Sprite" parent="Sky/CanvasLayer3"]
+position = Vector2( 1041.65, 574.701 )
+scale = Vector2( 158.706, 107.634 )
+texture = ExtResource( 15 )
+
+[node name="NightSky" type="Sprite" parent="Sky/CanvasLayer3"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 965.317, 594.905 )
+scale = Vector2( 171.614, 102.863 )
+texture = ExtResource( 20 )
+
+[node name="ToNight_Area2D" type="Area2D" parent="Sky"]
+position = Vector2( -236.238, 606.065 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sky/ToNight_Area2D"]
+position = Vector2( 95.3517, 230.963 )
+shape = SubResource( 14 )
+
+[node name="ToDay_Area2D2" type="Area2D" parent="Sky"]
+position = Vector2( 35.524, 608.205 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sky/ToDay_Area2D2"]
+position = Vector2( 95.3517, 230.963 )
+shape = SubResource( 15 )
+[connection signal="animation_finished" from="Player/PlayerPhysical/KinematicBody2D/Sprite/AnimationPlayer" to="Player" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="Player/PlayerPhysical/Player_Area2D" to="Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Player/PlayerPhysical/Player_Area2D" to="Player" method="_on_Player_Area2D_area_exited"]
+[connection signal="animation_finished" from="Player/PlayerPhysical/Item/Item_AnimationPlayer" to="Player" method="_on_Item_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="Door/DoorPhysical/Forward_Area2D" to="Door" method="_on_Forward_Area2D_area_entered"]
+[connection signal="area_entered" from="Door/DoorPhysical/Backward_Area2D" to="Door" method="_on_Backward_Area2D_area_entered"]
+[connection signal="area_entered" from="Sky/ToNight_Area2D" to="Sky" method="_on_ToNight_Area2D_area_entered"]
+[connection signal="area_entered" from="Sky/ToDay_Area2D2" to="Sky" method="_on_ToDay_Area2D2_area_entered"]

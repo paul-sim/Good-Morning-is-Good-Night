@@ -1,0 +1,10 @@
+{
+	"initial" : {
+		"1" : {"name":"OxMom", "text":"phew! that was close", "animation":""},
+		"2" : {"name":"OxMom", "text":"no rain got into the house", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"OxMom", "text":"no rain got into the house!", "animation":""}
+	},
+	"tag" : ""
+}

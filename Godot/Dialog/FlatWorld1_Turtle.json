@@ -1,0 +1,16 @@
+{
+	"initial" : {
+		"1" : {"name":"Turtle", "text":"hey there bunny, how are you?", "animation":""},
+		"2" : {"name":"Turtle", "text":"i hate to be down but i'm not doing so well..", "animation":""},
+		"3" : {"name":"Turtle", "text":"my restaurant's been empty today", "animation":""},
+		"4" : {"name":"Turtle", "text":"i just want to cook for others", "animation":""},
+		"5" : {"name":"Turtle", "text":"i want to make others happy", "animation":""},
+		"6" : {"name":"Turtle", "text":"..", "animation":""},
+		"7" : {"name":"Turtle", "text":"maybe you could go see frog?", "animation":""},
+		"8" : {"name":"Turtle", "text":"i hope he can come in, at least..", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Turtle", "text":"i'll just be here waiting for customers..", "animation":""}
+	},
+	"tag" : ""
+}

@@ -1,0 +1,52 @@
+extends Node2D
+
+const HIDE_VECTOR : Vector2 = Vector2(10000, 10000) # used to shove things away
+
+enum BIOME {SUMMER, FALL, WINTER, SPRING, NIGHT}
+enum GROUND {FOREFRONTGROUND, FOREGROUND, MIDFRONTGROUND, MIDGROUND, BACKGROUND}
+
+const ENVIRONMENT_RANDOM_Y_PLACEMENT_MAX : float = 10.0 # in pixels
+const ENVIRONMENT_RANDOM_Y_PLACEMENT_MIN : float = 0.0
+
+const ZOOM_TRANSITION_DURATION : float = 10.0 # make sure this matches camera anim player animation duration length
+
+const ZOOM_DEFAULT_SCALE : float = 1.0
+const ZOOM_DOOR_SCALE : float = 0.5
+const ZOOM_OUT_SCALE : float = 1.2
+const CAMERA_FLAT_WORLD_Y_OFFSET : float = 150.0
+# const ZOOM_OUT_SPEED : float = 0.02
+const ZOOM_OUT_SPEED : float = 0.02
+
+# setPiece
+
+enum SETPIECE_NUMBER {UNASSIGNED, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN} 
+enum DIALOG_NUMBER {UNASSIGNED, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN}
+enum DIALOG_SET {UNASSIGNED, INITIAL, LOOP, ONE_TIME_ONLY}
+
+# const PLAYER_ROTATE_INCREMENT = 0.4
+const PLAYER_ROTATE_INCREMENT = 0.4
+const PLAYER_ROTATE_DOOR_INCREMENT = 0.15
+const PLAYER_SPEED_FACTOR = 60.0
+
+enum DIRECTION {NEUTRAL, UP, RIGHT, DOWN, LEFT}
+
+enum WORLD {UNASSIGNED, FLAT, CIRCLE}
+
+const PLANET_RADIUS = 1000
+
+const CELESTIAL_ROTATE_LERP_SPEED = 12
+
+const DIALOG_BUBBLE_FLOAT_DISTANCE = 100 # for floating dialog bubble or icons above characters/things
+
+enum INTERACTABLE_TYPE {UNASSIGNED, DIALOG, ENVIRONMENT, ITEM, DOOR}
+enum INTERACT_ICON_TYPE {UNASSIGNED, DIALOG, FINGER}
+
+enum COLLISION_MASK_LAYER {TRAIN, PLATFORM}
+
+const SPRITE_SCALE = 0.06 # used to scale main character sprite
+
+enum DAY {ZERO, ONE, TWO, THREE, FOUR}
+#const INTERACTABLE_CLASS = preload("res://Scripts/Interactable.gd")
+#const DOOR_CLASS = preload("res://Scripts/Door.gd")
+
+const SKY_TRANSITION_SPEED = 1

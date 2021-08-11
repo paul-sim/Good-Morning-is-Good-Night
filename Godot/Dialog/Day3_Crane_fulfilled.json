@@ -1,0 +1,11 @@
+{
+	"initial" : {
+		"1" : {"name":"Crane", "text":"how’s the little sprout?", "animation":""},
+		"2" : {"name":"Crane", "text":"remember to give it water and lots of sun", "animation":""},
+		"3" : {"name":"Crane", "text":"it takes around 3 days to see that baby grow!", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Crane", "text":"the harvest is looking good this year", "animation":""}
+	},
+	"tag" : ""
+}

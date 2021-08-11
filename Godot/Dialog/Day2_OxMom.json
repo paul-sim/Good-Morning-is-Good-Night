@@ -1,0 +1,11 @@
+{
+	"initial" : {
+		"1" : {"name":"OxMom", "text":"oh dear!", "animation":""},
+		"2" : {"name":"OxMom", "text":"you’ll catch a cold out here in the rain", "animation":""},
+		"3" : {"name":"OxMom", "text":"i’m just heading out to the market now", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"OxMom", "text":"gotta hurry before i get soaked!", "animation":""}
+	},
+	"tag" : ""
+}

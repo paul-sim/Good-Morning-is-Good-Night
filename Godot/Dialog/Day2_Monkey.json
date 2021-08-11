@@ -1,0 +1,10 @@
+{
+	"initial" : {
+		"1" : {"name":"Monkey", "text":"we feel sick...", "animation":""},
+		"2" : {"name":"Monkey", "text":"too much... peach", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Monkey", "text":"tummy hurts...", "animation":""},
+	},
+	"tag" : ""
+}

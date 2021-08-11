@@ -1,0 +1,335 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scripts/AudioController.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music_AudioStreamPlayer:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music_AudioStreamPlayer:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music_AudioStreamPlayer:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music_AudioStreamPlayer2:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music_AudioStreamPlayer2:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music_AudioStreamPlayer2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music_AudioStreamPlayer2:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "init"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SFX_AudioStreamPlayer2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SFX_AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "long_fadeout"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("SFX_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 9.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SFX_AudioStreamPlayer2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 9.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Ambiance_FadeIn"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Ambiance_FadeOut"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Ambiance_FadeIn"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Ambiance_FadeOut"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Rain_FadeIn"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rain_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Rain_FadeOut"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rain_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[node name="AudioController" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Music" type="Node2D" parent="."]
+
+[node name="Music_AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
+volume_db = -80.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Music"]
+autoplay = "Music_Init"
+anims/Music_FadeIn = SubResource( 1 )
+anims/Music_FadeOut = SubResource( 2 )
+anims/Music_Init = SubResource( 3 )
+anims/long_fadeout = SubResource( 4 )
+
+[node name="Music_AudioStreamPlayer2" type="AudioStreamPlayer" parent="Music"]
+volume_db = -80.0
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Music"]
+autoplay = "Music_Init"
+anims/Music_FadeIn = SubResource( 5 )
+anims/Music_FadeOut = SubResource( 6 )
+anims/Music_Init = SubResource( 7 )
+anims/long_fadeout = SubResource( 8 )
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="SFX_AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+
+[node name="SFX_AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
+
+[node name="Footstep_AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+volume_db = -4.643
+
+[node name="SFX_AnimationPlayer" type="AnimationPlayer" parent="SFX"]
+autoplay = "init"
+anims/init = SubResource( 9 )
+anims/long_fadeout = SubResource( 10 )
+
+[node name="Ambiance" type="Node" parent="."]
+
+[node name="Ambiance_AudioStreamPlayer" type="AudioStreamPlayer" parent="Ambiance"]
+
+[node name="Ambiance_AudioStreamPlayer2" type="AudioStreamPlayer" parent="Ambiance"]
+
+[node name="Rain_AudioStreamPlayer" type="AudioStreamPlayer" parent="Ambiance"]
+volume_db = -80.0
+
+[node name="Ambiance_AnimationPlayer" type="AnimationPlayer" parent="Ambiance"]
+anims/Ambiance_FadeIn = SubResource( 13 )
+anims/Ambiance_FadeOut = SubResource( 14 )
+
+[node name="Ambiance_AnimationPlayer2" type="AnimationPlayer" parent="Ambiance"]
+anims/Ambiance_FadeIn = SubResource( 15 )
+anims/Ambiance_FadeOut = SubResource( 16 )
+
+[node name="Rain_AnimationPlayer" type="AnimationPlayer" parent="Ambiance"]
+anims/Rain_FadeIn = SubResource( 11 )
+anims/Rain_FadeOut = SubResource( 12 )

@@ -1,0 +1,16 @@
+
+
+
+
+technical:
+- fix audio delay in html export: https://godotforums.org/discussion/26395/why-is-there-an-audio-lag-in-my-html5-games-why
+- disable dialog and movement while fading to white in flatworld 
+
+
+- add sound fx
+- add moving-through-door animation for bunny
+- add snails racing
+
+- change beginning restaurant stall to say "wednesday" instead of monday
+- add goose animation for day 2
+- change goose text for day 1

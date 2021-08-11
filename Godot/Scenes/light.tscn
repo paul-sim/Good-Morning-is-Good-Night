@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Props/light_circle.png" type="Texture" id=1]
+
+[node name="light" type="Sprite"]
+modulate = Color( 1, 0.670588, 0.0392157, 0.435294 )
+position = Vector2( -127.855, -78.5328 )
+scale = Vector2( 0.406746, 0.406746 )
+texture = ExtResource( 1 )

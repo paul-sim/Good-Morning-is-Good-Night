@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"VendingMachine", "text":"", "animation":"Idle"},
+	},
+	"loop" : {
+		"1" : {"name":"VendingMachine", "text":"", "animation":"Idle"}
+	},
+	"tag" : ""
+}

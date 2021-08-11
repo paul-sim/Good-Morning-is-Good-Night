@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"Crane", "text":"what a wonderful year for a harvest!", "animation":""},
+	},
+	"loop" : {
+		"1" : {"name":"Crane", "text":"what a wonderful year for a harvest!", "animation":""}
+	},
+	"tag" : ""
+}
