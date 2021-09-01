@@ -130,6 +130,7 @@ func _reached_text_end() -> bool:
 
 func _end_dialog() -> void:
 	_forward_dialog_tag()
+	show_speech_bubble_arrow()
 	_reset_dialog()
 	_player.enable_movement()
 	_interactable_manager.dialog_finished()
@@ -180,3 +181,9 @@ func hide_interact_icon():
 
 func destroy_interact_icon():
 	find_node("InteractIcon").queue_free()
+
+func hide_speech_bubble_arrow():
+	$Dialog/SpeechBubble/SpeechBubbleArrow.position = ConstsEnums.HIDE_VECTOR
+
+func show_speech_bubble_arrow():
+	$Dialog/SpeechBubble/SpeechBubbleArrow.position = Vector2(-6.013, -22.91) # an offset position so that the arrow hangs beneath the speech bubble

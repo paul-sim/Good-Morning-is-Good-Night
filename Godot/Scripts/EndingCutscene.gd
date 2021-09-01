@@ -26,5 +26,9 @@ func _on_Fade_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_AnimationPlayer2_animation_finished(anim_name):
+	if anim_name == "Wait_Time_Before_Screen_Shake_SFX":
+		$AudioStreamPlayer2.stream = load("res://Audio/SFX/earthquake.ogg")
+		$AudioStreamPlayer2.play()
+		$AnimationPlayer3.play("Audio_FadeIn")
 	if anim_name == "Wait_Time_Before_Screen_Shake":
 		$Camera2D.shake()

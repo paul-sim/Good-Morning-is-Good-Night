@@ -1,11 +1,11 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://Scripts/CameraFlatWorld.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/NPCs/crane_wed_1-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Props/FoodCart_1.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Props/stall_mon.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Player/Rabbit_Run_Idle.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/Rabbit-run-1-Sheet.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Props/Tree_3.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/Ground.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Overlay/sepia_overlay1.png" type="Texture" id=9]
@@ -17,7 +17,7 @@
 [ext_resource path="res://Sprites/NPCs/turtle_idle_1-Sheet.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/SceneManager.gd" type="Script" id=16]
 [ext_resource path="res://Sprites/Props/House_1.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/NPCs/snail_race.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Props/snail_1-Sheet.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Props/snail_bg.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Props/Ricefield_Dirt.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Props/Ricefield_Plants.png" type="Texture" id=21]
@@ -64,6 +64,7 @@
 [ext_resource path="res://Sprites/Props/White_Square.png" type="Texture" id=62]
 [ext_resource path="res://Sprites/Props/time_stone.png" type="Texture" id=63]
 [ext_resource path="res://Sprites/Props/hills_bg_flat.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Props/flower.png" type="Texture" id=65]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -85,7 +86,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 9 ]
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -117,7 +118,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 3, 4, 5, 6, 7, 8, 0, 1 ]
+"values": [ 4, 5, 6, 7, 8, 9, 10, 2, 3 ]
 }
 
 [sub_resource type="CapsuleShape2D" id=7]
@@ -541,7 +542,26 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=39]
+resource_name = "FadeToWhite"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=40]
 resource_name = "Idle"
+length = 0.001
+
+[sub_resource type="Animation" id=41]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -608,8 +628,8 @@ script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="PlayerFlatWorld"]
 texture = ExtResource( 6 )
-hframes = 10
-frame = 9
+hframes = 25
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerFlatWorld/Sprite"]
 autoplay = "Idle"
@@ -883,13 +903,15 @@ texture = ExtResource( 19 )
 [node name="snail_race" type="Sprite" parent="StaticProps"]
 position = Vector2( 508.287, -105.38 )
 texture = ExtResource( 18 )
+hframes = 3
+frame = 2
 
 [node name="butterfly" type="Sprite" parent="StaticProps"]
 position = Vector2( 731.965, 234.342 )
 z_index = 11
 texture = ExtResource( 54 )
 hframes = 4
-frame = 2
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/butterfly"]
 autoplay = "Idle"
@@ -898,6 +920,10 @@ anims/Idle = SubResource( 23 )
 [node name="House_2" type="Sprite" parent="StaticProps"]
 position = Vector2( 825.526, -155.106 )
 texture = ExtResource( 37 )
+
+[node name="flower" type="Sprite" parent="StaticProps"]
+position = Vector2( 779.505, 306.226 )
+texture = ExtResource( 65 )
 
 [node name="ox_clothes" type="Sprite" parent="StaticProps"]
 position = Vector2( 1242.32, 45.2279 )
@@ -1409,15 +1435,17 @@ anims/FadeToWhite = SubResource( 36 )
 anims/GetTimeMachine = SubResource( 37 )
 anims/Idle = SubResource( 38 )
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="SceneManager"]
+anims/FadeToWhite = SubResource( 39 )
+anims/Idle = SubResource( 40 )
+
 [node name="Sprite" type="Sprite" parent="SceneManager"]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 4293.52, 90.563 )
 scale = Vector2( 1183.69, 549.68 )
 z_index = 101
 texture = ExtResource( 62 )
 
 [node name="white" type="Sprite" parent="."]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 111.039, 34.0917 )
 scale = Vector2( 261.697, 146.043 )
@@ -1426,7 +1454,7 @@ texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="white"]
 autoplay = "Idle"
-anims/Idle = SubResource( 39 )
+anims/Idle = SubResource( 41 )
 [connection signal="area_entered" from="CameraFixPoints/StickLeft_Area2D" to="CameraFlatWorld" method="_on_StickLeft_Area2D_area_entered"]
 [connection signal="area_exited" from="CameraFixPoints/StickLeft_Area2D" to="CameraFlatWorld" method="_on_StickLeft_Area2D_area_exited"]
 [connection signal="area_entered" from="CameraFixPoints/StickRight_Area2D" to="CameraFlatWorld" method="_on_StickRight_Area2D_area_entered"]
@@ -1434,3 +1462,4 @@ anims/Idle = SubResource( 39 )
 [connection signal="area_entered" from="PlayerFlatWorld/Player_Area2D" to="PlayerFlatWorld" method="_on_Player_Area2D_area_entered"]
 [connection signal="area_exited" from="PlayerFlatWorld/Player_Area2D" to="PlayerFlatWorld" method="_on_Player_Area2D_area_exited"]
 [connection signal="animation_finished" from="SceneManager/AnimationPlayer" to="SceneManager" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="SceneManager/AnimationPlayer2" to="SceneManager" method="_on_AnimationPlayer2_animation_finished"]

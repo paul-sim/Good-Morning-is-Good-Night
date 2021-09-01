@@ -1,0 +1,9 @@
+{
+	"initial" : {
+		"1" : {"name":"Player", "text":"you got \"homemade sauce\"!", "animation":""}
+	},
+	"loop" : {
+		"1" : {"name":"Player", "text":"bye!", "animation":""}
+	},
+	"tag" : ""
+}

@@ -1,10 +1,21 @@
 {
 	"initial" : {
-		"1" : {"name":"Turtle", "text":"this is the end dialog", "animation":""},
-		"2" : {"name":"Turtle", "text":"good bye", "animation":""},
+		"1" : {"name":"Turtle", "text":"you look exhausted, did you run around all day?", "animation":""},
+		"2" : {"name":"Turtle", "text":"..?", "animation":""},
+		"3" : {"name":"Turtle", "text":"what are these? special ingredients?", "animation":""},
+		"4" : {"name":"Turtle", "text":"from all around town?", "animation":""},
+		"5" : {"name":"Turtle", "text":"how on earth did you..", "animation":""},
+		"6" : {"name":"Turtle", "text":"okay", "animation":""},
+		"7" : {"name":"Turtle", "text":"hmm.. i’ve got it", "animation":""},
+		"8" : {"name":"Turtle", "text":"the perfect sweet and savoury fall special!", "animation":""},
+		"9" : {"name":"Turtle", "text":"come back tomorrow night - and bring everyone", "animation":""},
+		"10" : {"name":"Turtle", "text":"i'll prepare a very special meal for them!", "animation":""},
+		"11" : {"name":"Turtle", "text":"hey..", "animation":""},
+		"12" : {"name":"Turtle", "text":"thank you", "animation":""},
+		"13" : {"name":"Turtle", "text":"to a brand new day, here we go :-)", "animation":""},
 	},
 	"loop" : {
-		"1" : {"name":"Turtle", "text":"bye!", "animation":""}
+		"1" : {"name":"Turtle", "text":"let's see.. a hint of the homemade sauce here and there..", "animation":""}
 	},
 	"tag" : ""
 }

@@ -17,6 +17,8 @@ var _forced_interactable = false
 var _interactable_disabled = false # when fading to white in flatworld1, nothing should be interactable
 
 var _force_peach_obtain_interaction = false
+var _force_veggie_obtain_interaction = false
+var _force_sauce_obtain_interaction = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,8 +37,20 @@ func _process(delta):
 	# this is done in process block because an interaction has to end completely before another can be started
 	# and so this way, we can reliably know that this forced interaction happens separately from the interaction that triggers this
 	if _force_peach_obtain_interaction:
-		force_interactable(get_owner().get_node("DayManager/Day3/ForcedInteractablePeach"))
+		_dialog_manager.hide_speech_bubble_arrow() # the little tail on the speech bubble should be hidden since dialog will act as a non-speaker global dialog
+		force_interactable(get_owner().get_node("DayManager/Day1/ForcedInteractablePeach"))
+		_player.play_animation("Item_Obtain") # anim where player raises hands
 		_force_peach_obtain_interaction = false
+	elif _force_veggie_obtain_interaction:
+		_dialog_manager.hide_speech_bubble_arrow()
+		force_interactable(get_owner().get_node("DayManager/Day3/ForcedInteractableVeggie"))
+		_player.play_animation("Item_Obtain") # anim where player raises hands
+		_force_veggie_obtain_interaction = false
+	elif _force_sauce_obtain_interaction:
+		_dialog_manager.hide_speech_bubble_arrow()
+		force_interactable(get_owner().get_node("DayManager/Day3/ForcedInteractableSauce"))
+		_player.play_animation("Item_Obtain") # anim where player raises hands
+		_force_sauce_obtain_interaction = false
 
 func area_entered(area) -> void:
 	if _is_interacting: # if player is currently interacting, don't switch who they can interact with. this might happen if there's an anim where a sprite with area2D enters the player's area2D
@@ -175,6 +189,9 @@ func _remove_forced_interactable() -> void:
 		# _current_interactable.queue_free()
 		_current_interactable = null
 		_forced_interactable = false
+		# check if player has all the important items
+		if _player.has_all_key_items():
+			_player.play_thinking_animation()
 
 func enable_is_waiting_for_anim() -> void:
 	_is_waiting_for_anim = true
@@ -221,8 +238,6 @@ func _butterfly_effect():
 		get_parent().get_node("DayManager/Day3/Boxes/BoxPhysical/Area2D").queue_free()
 		_player.play_animation("ObtainCoin")
 		_audio_controller.play_item_obtain_sound("item_obtain_small.ogg")
-		_force_peach_obtain_interaction = true
-		# force_interactable(get_owner().get_node("DayManager/Day3/ForcedInteractablePeach"))
 	elif _current_interactable.name == "VendingMachine": # day2 when this triggers
 		var day3_vending_machine = get_parent().get_node("DayManager/Day3/VendingMachine")
 		_current_interactable.set_dialog_file("Day2_VendingMachine_fulfilled.json") # no need to change dialog set to inital since vending machine has same lines for both inital and loop lines
@@ -243,6 +258,7 @@ func _butterfly_effect():
 		get_parent().get_node("DayManager/Day3/StaticProps/peach_box").modulate.a = 0
 		_player.play_animation("ObtainPeaches")
 		_audio_controller.play_item_obtain_sound("item_obtain_big.ogg")
+		_force_peach_obtain_interaction = true
 	elif _current_interactable.name == "Crane": # day2 when this triggers
 		var day3_crane = get_parent().get_node("DayManager/Day3/Crane")
 		day3_crane.set_dialog_file("Day3_Crane_fulfilled.json")
@@ -260,6 +276,7 @@ func _butterfly_effect():
 		get_parent().get_node("DayManager/Day3/StaticProps/rice_plant_3").modulate.a = 0
 		_player.play_animation("ObtainVeggie")
 		_audio_controller.play_item_obtain_sound("item_obtain_big.ogg")
+		_force_veggie_obtain_interaction = true
 	elif _current_interactable.name == "Window": # day2 trigger
 		var day3_ox_mom = get_parent().get_node("DayManager/Day3/OxMom")
 		day3_ox_mom.set_dialog_file("Day3_OxMom_alt.json") # logically need an alt dialog for story to make sense
@@ -267,6 +284,7 @@ func _butterfly_effect():
 	elif _current_interactable.name == "OxMom": # day3 trigger
 		_player.play_animation("ObtainSauce")
 		_audio_controller.play_item_obtain_sound("item_obtain_big.ogg")
+		_force_sauce_obtain_interaction = true
 	elif _current_interactable.name == "Turtle" && get_parent().name == "FlatWorld1": # triggers in flatworld1
 		var frog = get_parent().get_node("Frog")
 		frog.set_dialog_read(true) # skip any initial dialog, go straight to important dialog

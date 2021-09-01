@@ -52,17 +52,18 @@ func _ready():
 
 func _process(delta):
 	# check inventory every few seconds
-	_timer += delta
-	if _timer >= 5 && _thinking_played == false:
-		_timer = 0
-		# check inventory
-		var inventory = $Inventory
-		if inventory.has_item("peaches"):
-			if inventory.has_item("veggie"):
-				if inventory.has_item("sauce"):
-					_thinking_played = true
-					$PlayerPhysical/thinking/Thinking_AnimationPlayer.play("Thinking")
-					
+#	_timer += delta
+#	if _timer >= 5 && _thinking_played == false:
+#		_timer = 0
+#		# check inventory
+#		var inventory = $Inventory
+#		if inventory.has_item("peaches"):
+#			if inventory.has_item("veggie"):
+#				if inventory.has_item("sauce"):
+#					_thinking_played = true
+#					$PlayerPhysical/thinking/Thinking_AnimationPlayer.play("Thinking")
+#
+	pass
 
 func _physics_process(delta):
 	
@@ -166,27 +167,27 @@ func set_stop_left_direction(some_bool):
 func play_animation(animation):
 	if animation == "ObtainDrink":
 		_item_sprite.set_texture(load("res://Sprites/Props/can.png"))
-		_item_sprite.rotation_degrees = 0 - self.rotation_degrees
+		# _item_sprite.rotation_degrees = 0 - self.rotation_degrees
 		_item_anim_player.play("ObtainItem") # separate animation player for item animations otherwise main animation player overrides its animation
 	elif animation == "ObtainCoin":
 		_item_sprite.set_texture(load("res://Sprites/Props/coin.png"))
-		_item_sprite.rotation_degrees = 0 - self.rotation_degrees
+		# _item_sprite.rotation_degrees = 0 - self.rotation_degrees
 		_item_anim_player.play("ObtainItem")
 	elif animation == "ObtainPeaches":
 		_item_sprite.set_texture(load("res://Sprites/Props/peach_box.png"))
-		_item_sprite.rotation_degrees = 0 - self.rotation_degrees
+		# _item_sprite.rotation_degrees = 0 - self.rotation_degrees
 		_item_anim_player.play("ObtainItem")
 	elif animation == "ObtainSeeds":
 		_item_sprite.set_texture(load("res://Sprites/Props/rice_seed.png"))
-		_item_sprite.rotation_degrees = 0 - self.rotation_degrees
+		# _item_sprite.rotation_degrees = 0 - self.rotation_degrees
 		_item_anim_player.play("ObtainItem")
 	elif animation == "ObtainVeggie":
 		_item_sprite.set_texture(load("res://Sprites/Props/rice_plant_3.png"))
-		_item_sprite.rotation_degrees = 0 - self.rotation_degrees
+		# _item_sprite.rotation_degrees = 0 - self.rotation_degrees
 		_item_anim_player.play("ObtainItem")
 	elif animation == "ObtainSauce":
 		_item_sprite.set_texture(load("res://Sprites/Props/sauce.png"))
-		_item_sprite.rotation_degrees = 0 - self.rotation_degrees
+		# _item_sprite.rotation_degrees = 0 - self.rotation_degrees
 		_item_anim_player.play("ObtainItem")
 	else:
 		_anim_player.play(animation)
@@ -203,3 +204,14 @@ func check_lose_time_machine():
 				_move_enabled = false
 				_anim_player.play("Idle")
 				get_parent().get_node("SceneManager").play_ending_cutscene()
+
+func has_all_key_items():
+	var inventory = $Inventory
+	if inventory.has_item("peaches"):
+		if inventory.has_item("veggie"):
+			if inventory.has_item("sauce"):
+				return true
+	return false
+
+func play_thinking_animation():
+	$PlayerPhysical/thinking/Thinking_AnimationPlayer.play("Thinking")

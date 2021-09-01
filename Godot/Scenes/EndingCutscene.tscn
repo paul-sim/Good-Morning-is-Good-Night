@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/Overlay/gray square.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Props/White_Square.png" type="Texture" id=2]
@@ -7,10 +7,9 @@
 [ext_resource path="res://Audio/SFX/night_ambiance.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scripts/CameraEndingCutscene.gd" type="Script" id=6]
 
-[sub_resource type="OpenSimplexNoise" id=5]
+[sub_resource type="OpenSimplexNoise" id=1]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Idle"
+[sub_resource type="Animation" id=2]
 length = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite2:frame")
@@ -25,12 +24,31 @@ tracks/0/keys = {
 "values": [ 0, 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "Wait_Time_Before_Screen_Shake"
 length = 8.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "Fade_ToWhite"
+[sub_resource type="Animation" id=8]
+resource_name = "Audio_FadeIn"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2.5, 6, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -80.0, -80.0, 0.0, 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Wait_Time_Before_Screen_Shake_SFX"
+length = 6.0
+
+[sub_resource type="Animation" id=4]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -45,7 +63,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -60,8 +78,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Idle"
+[sub_resource type="Animation" id=6]
 length = 13.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:volume_db")
@@ -92,15 +109,20 @@ hframes = 7
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 6 )
-noise = SubResource( 5 )
+noise = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Idle = SubResource( 1 )
+anims/Idle = SubResource( 2 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "Wait_Time_Before_Screen_Shake"
-anims/Wait_Time_Before_Screen_Shake = SubResource( 6 )
+anims/Wait_Time_Before_Screen_Shake = SubResource( 3 )
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+autoplay = "Wait_Time_Before_Screen_Shake_SFX"
+anims/Audio_FadeIn = SubResource( 8 )
+anims/Wait_Time_Before_Screen_Shake_SFX = SubResource( 7 )
 
 [node name="Sprite3" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -110,8 +132,8 @@ texture = ExtResource( 2 )
 
 [node name="Fade_AnimationPlayer" type="AnimationPlayer" parent="Sprite3"]
 autoplay = "Idle"
-anims/Fade_ToWhite = SubResource( 2 )
-anims/Idle = SubResource( 3 )
+anims/Fade_ToWhite = SubResource( 4 )
+anims/Idle = SubResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
@@ -120,7 +142,11 @@ autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AudioStreamPlayer"]
 autoplay = "Idle"
-anims/Idle = SubResource( 4 )
+anims/Idle = SubResource( 6 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer3" to="." method="_on_AnimationPlayer2_animation_finished"]
 [connection signal="animation_finished" from="Sprite3/Fade_AnimationPlayer" to="." method="_on_Fade_AnimationPlayer_animation_finished"]

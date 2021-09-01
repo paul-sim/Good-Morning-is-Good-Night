@@ -24,13 +24,14 @@ func change_scene(scene):
 	elif get_parent().name == "Main":
 		get_owner().find_node("Player").disable_movement()
 	get_owner().find_node("CameraFlatWorld").shake()
-	$AnimationPlayer.queue("FadeToWhite")
+	$AnimationPlayer2.play("FadeToWhite")
+	# $AnimationPlayer.queue("FadeToWhite")
 	_audio_controller.stop_ambiance()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "FadeToWhite": # we faded to white so that we can do a scene change
-		get_tree().change_scene("res://Scenes/Main.tscn")
-	elif anim_name == "EndingCutscene":
+#	if anim_name == "FadeToWhite": # we faded to white so that we can do a scene change
+#		get_tree().change_scene("res://Scenes/Main.tscn")
+	if anim_name == "EndingCutscene":
 		get_tree().change_scene("res://Scenes/EndingCutscene.tscn")
 	elif anim_name == "EndGame":
 		get_tree().change_scene("res://Scenes/Credits.tscn")
@@ -40,3 +41,7 @@ func play_ending_cutscene():
 
 func end_game():
 	$AnimationPlayer.play("EndGame")
+
+func _on_AnimationPlayer2_animation_finished(anim_name):
+	if anim_name == "FadeToWhite": # we faded to white so that we can do a scene change
+		get_tree().change_scene("res://Scenes/Main.tscn")
