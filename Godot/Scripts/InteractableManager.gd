@@ -16,6 +16,8 @@ var _is_waiting_for_anim = false # some anims must complete the spacebar can bec
 var _forced_interactable = false
 var _interactable_disabled = false # when fading to white in flatworld1, nothing should be interactable
 
+var _force_peach_obtain_interaction = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent().name == "Main":
@@ -27,14 +29,43 @@ func _unhandled_input(event):
 	if ! _interactable_disabled:
 		if event.is_action_pressed("ui_accept") && _interactables.size() > 0 && ! _is_waiting_for_anim:
 			_interact()
-		
+
+func _process(delta):
+	# when an important item is obtained, we popup a dialog saying we obtained that item
+	# this is done in process block because an interaction has to end completely before another can be started
+	# and so this way, we can reliably know that this forced interaction happens separately from the interaction that triggers this
+	if _force_peach_obtain_interaction:
+		force_interactable(get_owner().get_node("DayManager/Day3/ForcedInteractablePeach"))
+		_force_peach_obtain_interaction = false
+
 func area_entered(area) -> void:
 	if _is_interacting: # if player is currently interacting, don't switch who they can interact with. this might happen if there's an anim where a sprite with area2D enters the player's area2D
 		return
+	# check if we have an interactable who's area_exited signal never got called (and therefore they are in the interactable list when they shouldn't.. this results in glitch where you can only interact with them no matter where you are physically) 
+	# erase all interactables not overlapping player's area2D
+	var areas_touching_player
 	if get_parent().name == "Main":
-		_interactables.append(area.get_parent().get_parent())
+		areas_touching_player = _player.get_node("PlayerPhysical/Player_Area2D").get_overlapping_areas()
 	elif get_parent().name == "FlatWorld1" || get_parent().name == "FlatWorld2":
-		_interactables.append(area.get_parent())
+		areas_touching_player = _player.get_node("Player_Area2D").get_overlapping_areas()
+	for temp_interactable in _interactables:
+		if temp_interactable.get_area2D() in areas_touching_player:
+			pass
+		else:
+			_interactables.erase(temp_interactable)
+
+	if get_parent().name == "Main":
+		# check if _interactables already has the interactable in its list. sometimes we get duplicates which results in a glitch where you can only interact with the duplicate object no matter where you are physically
+		if area.get_parent().get_parent() in _interactables:
+			pass
+		else:
+			_interactables.append(area.get_parent().get_parent())
+	elif get_parent().name == "FlatWorld1" || get_parent().name == "FlatWorld2":
+		# check if _interactables already has the interactable in its list. sometimes we get duplicates which results in a glitch where you can only interact with the duplicate object no matter where you are physically
+		if area.get_parent() in _interactables:
+			pass
+		else:
+			_interactables.append(area.get_parent())
 	deactivate_all_interactables()
 	activate_closest_interactable()
 
@@ -52,7 +83,8 @@ func _interact() -> void:
 	if _current_interactable.get_interactable_type() == ConstsEnums.INTERACTABLE_TYPE.DIALOG:
 		_is_interacting = true
 		_dialog_manager.do_next_line()
-		_audio_controller.play_SFX("dialog_continue.ogg")
+		if _forced_interactable != true: # if not checking, then we get the dialog_conitnue.ogg sfx playing twice almost simultaneously, resulting in audio clipping
+			_audio_controller.play_SFX("dialog_continue.ogg")
 	elif _current_interactable.get_interactable_type() == ConstsEnums.INTERACTABLE_TYPE.DOOR:
 		_is_interacting = true
 		_door_manager.open_door()
@@ -140,7 +172,7 @@ func _remove_forced_interactable() -> void:
 	if _forced_interactable:
 		# this interaction was forced. normally we remove an interactable from the interactable list when we exit its area2D but since there is no area2D here, we manually erase it from the interactable list
 		_interactables.erase(_current_interactable)
-		_current_interactable.queue_free()
+		# _current_interactable.queue_free()
 		_current_interactable = null
 		_forced_interactable = false
 
@@ -188,14 +220,15 @@ func _butterfly_effect():
 		get_parent().get_node("DayManager/Day2/Boxes/BoxPhysical/Area2D").queue_free()
 		get_parent().get_node("DayManager/Day3/Boxes/BoxPhysical/Area2D").queue_free()
 		_player.play_animation("ObtainCoin")
-		_audio_controller.play_SFX("item_obtain_small.ogg")
+		_audio_controller.play_item_obtain_sound("item_obtain_small.ogg")
+		_force_peach_obtain_interaction = true
 		# force_interactable(get_owner().get_node("DayManager/Day3/ForcedInteractablePeach"))
 	elif _current_interactable.name == "VendingMachine": # day2 when this triggers
 		var day3_vending_machine = get_parent().get_node("DayManager/Day3/VendingMachine")
 		_current_interactable.set_dialog_file("Day2_VendingMachine_fulfilled.json") # no need to change dialog set to inital since vending machine has same lines for both inital and loop lines
 		day3_vending_machine.set_dialog_file("Day3_VendingMachine_fulfilled.json")
 		_player.play_animation("ObtainDrink")
-		_audio_controller.play_SFX("item_obtain_small.ogg")
+		_audio_controller.play_item_obtain_sound("item_obtain_small.ogg")
 	elif _current_interactable.name == "Monkey": # day1 when this triggers
 		var day2_monkey = get_parent().get_node("DayManager/Day2/Monkey")
 		var day3_monkey = get_parent().get_node("DayManager/Day3/Monkey")
@@ -209,13 +242,13 @@ func _butterfly_effect():
 		get_parent().get_node("DayManager/Day2/StaticProps/peach_box").modulate.a = 0
 		get_parent().get_node("DayManager/Day3/StaticProps/peach_box").modulate.a = 0
 		_player.play_animation("ObtainPeaches")
-		_audio_controller.play_SFX("item_obtain_big.ogg")
+		_audio_controller.play_item_obtain_sound("item_obtain_big.ogg")
 	elif _current_interactable.name == "Crane": # day2 when this triggers
 		var day3_crane = get_parent().get_node("DayManager/Day3/Crane")
 		day3_crane.set_dialog_file("Day3_Crane_fulfilled.json")
 		day3_crane.set_current_dialog_set(ConstsEnums.DIALOG_SET.INITIAL)
 		_player.play_animation("ObtainSeeds")
-		_audio_controller.play_SFX("item_obtain_small.ogg")
+		_audio_controller.play_item_obtain_sound("item_obtain_small.ogg")
 	elif _current_interactable.name == "FertileSoil" && _current_interactable.get_parent().name == "Day1": # day1 when this triggers
 		_current_interactable.get_node("FertileSoilPhysical/Area2D").queue_free()
 		get_parent().get_node("DayManager/Day1/StaticProps/rice_plant_1").modulate.a = 1
@@ -226,14 +259,14 @@ func _butterfly_effect():
 		_current_interactable.queue_free()
 		get_parent().get_node("DayManager/Day3/StaticProps/rice_plant_3").modulate.a = 0
 		_player.play_animation("ObtainVeggie")
-		_audio_controller.play_SFX("item_obtain_big.ogg")
+		_audio_controller.play_item_obtain_sound("item_obtain_big.ogg")
 	elif _current_interactable.name == "Window": # day2 trigger
 		var day3_ox_mom = get_parent().get_node("DayManager/Day3/OxMom")
 		day3_ox_mom.set_dialog_file("Day3_OxMom_alt.json") # logically need an alt dialog for story to make sense
 		_current_interactable.queue_free()
 	elif _current_interactable.name == "OxMom": # day3 trigger
 		_player.play_animation("ObtainSauce")
-		_audio_controller.play_SFX("item_obtain_big.ogg")
+		_audio_controller.play_item_obtain_sound("item_obtain_big.ogg")
 	elif _current_interactable.name == "Turtle" && get_parent().name == "FlatWorld1": # triggers in flatworld1
 		var frog = get_parent().get_node("Frog")
 		frog.set_dialog_read(true) # skip any initial dialog, go straight to important dialog

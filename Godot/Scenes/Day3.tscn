@@ -490,7 +490,7 @@ script = ExtResource( 2 )
 _interactable_icon_type = 2
 
 [node name="VendingMachinePhysical" type="Node2D" parent="VendingMachine"]
-position = Vector2( 3.05176e-05, -1119.47 )
+position = Vector2( 0, -1119.47 )
 
 [node name="Sprite" type="Sprite" parent="VendingMachine/VendingMachinePhysical"]
 texture = ExtResource( 16 )

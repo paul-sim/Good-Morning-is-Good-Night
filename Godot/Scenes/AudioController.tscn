@@ -303,6 +303,8 @@ anims/long_fadeout = SubResource( 8 )
 
 [node name="SFX_AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
 
+[node name="Item_Obtain_AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+
 [node name="Footstep_AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
 volume_db = -4.643
 

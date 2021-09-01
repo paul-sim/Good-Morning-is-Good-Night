@@ -15,6 +15,7 @@ onready var _ambiance_animationPlayer2 = self.find_node("Ambiance_AnimationPlaye
 onready var _rain_audioStreamPlayer = self.find_node("Rain_AudioStreamPlayer")
 onready var _rain_animationPlayer = self.find_node("Rain_AnimationPlayer")
 onready var _footstep_audioStreamPlayer = self.find_node("Footstep_AudioStreamPlayer")
+onready var _item_obtain_audioStreamPlayer = self.find_node("Item_Obtain_AudioStreamPlayer")
 
 var rng = RandomNumberGenerator.new()
 
@@ -193,3 +194,7 @@ func play_footstep():
 
 func stop_footstep():
 	_footstep_on = false
+
+func play_item_obtain_sound(sfx):
+	_item_obtain_audioStreamPlayer.stream = load("res://Audio/SFX/" + sfx)
+	_item_obtain_audioStreamPlayer.play()

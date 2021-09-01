@@ -360,7 +360,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 59.8 ),
+"times": PoolRealArray( 0, 60 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 8574.37, -314.612 ), Vector2( -2014.33, -314.612 ) ]
@@ -411,7 +411,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=32]
-length = 30.0
+length = 60.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -419,10 +420,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 29.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 29.9, 29.904, 60 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2543.69, -314.612 ), Vector2( -2502.36, -314.612 ) ]
+"values": [ Vector2( 2543.69, -314.612 ), Vector2( -2502.36, -314.612 ), Vector2( 8000, -314.612 ), Vector2( 2543.69, -314.612 ) ]
 }
 
 [sub_resource type="Animation" id=33]
@@ -1249,7 +1250,7 @@ color = Color( 1, 0.670588, 0.0392157, 1 )
 energy = 0.27
 
 [node name="dragonfly" type="Sprite" parent="StaticProps"]
-position = Vector2( 6275.57, -314.612 )
+position = Vector2( 5876.71, -314.612 )
 z_index = 20
 texture = ExtResource( 57 )
 hframes = 3
@@ -1263,10 +1264,11 @@ autoplay = "Idle"
 anims/Idle = SubResource( 28 )
 
 [node name="dragonfly3" type="Sprite" parent="StaticProps"]
-position = Vector2( 8574.37, -314.612 )
+position = Vector2( 5924.72, -314.612 )
 z_index = 20
 texture = ExtResource( 57 )
 hframes = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/dragonfly3"]
 autoplay = "Idle"
@@ -1277,10 +1279,11 @@ autoplay = "Idle"
 anims/Idle = SubResource( 30 )
 
 [node name="dragonfly2" type="Sprite" parent="StaticProps"]
-position = Vector2( 2543.69, -314.612 )
+position = Vector2( 1626.63, -314.612 )
 z_index = 20
 texture = ExtResource( 57 )
 hframes = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/dragonfly2"]
 autoplay = "Idle"
@@ -1414,6 +1417,7 @@ z_index = 101
 texture = ExtResource( 62 )
 
 [node name="white" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 111.039, 34.0917 )
 scale = Vector2( 261.697, 146.043 )

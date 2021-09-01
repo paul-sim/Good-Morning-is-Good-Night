@@ -139,3 +139,6 @@ func set_sprite_texture(sprite_texture):
 
 func get_interact_icon_type():
 	return _interactable_icon_type
+
+func get_area2D():
+	return find_node("Area2D")
