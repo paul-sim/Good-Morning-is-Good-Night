@@ -14,6 +14,7 @@ var _current_interactable = null
 var _is_interacting = false # keeps from modifying which interactables are in player's area
 var _is_waiting_for_anim = false # some anims must complete the spacebar can become functional again
 var _forced_interactable = false
+var _interactable_disabled = false # when fading to white in flatworld1, nothing should be interactable
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,8 +24,9 @@ func _ready():
 		_player = get_owner().find_node("PlayerFlatWorld")
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept") && _interactables.size() > 0 && ! _is_waiting_for_anim:
-		_interact()
+	if ! _interactable_disabled:
+		if event.is_action_pressed("ui_accept") && _interactables.size() > 0 && ! _is_waiting_for_anim:
+			_interact()
 		
 func area_entered(area) -> void:
 	if _is_interacting: # if player is currently interacting, don't switch who they can interact with. this might happen if there's an anim where a sprite with area2D enters the player's area2D
@@ -145,6 +147,12 @@ func _remove_forced_interactable() -> void:
 func enable_is_waiting_for_anim() -> void:
 	_is_waiting_for_anim = true
 
+func disable_interactions() -> void:
+	_interactable_disabled = true
+
+func enable_interactions() -> void:
+	_interactable_disabled = false
+
 func get_dialog_set():
 	return _current_interactable.get_current_dialog_set()
 
@@ -167,6 +175,10 @@ func item_exchange():
 # when you do something for an NPC, let it have effect on subsequent days
 func _butterfly_effect():
 	if _current_interactable.name == "Frog" && get_parent().name == "FlatWorld1": # flatworld1 when this triggers
+		# disable player controls
+		_player.disable_movement()
+		disable_interactions()
+		_dialog_manager.destroy_interact_icon() # so that players won't see the interact icon
 		# change scene to circle world
 		_scene_manager.change_scene("Main.tscn")
 	elif _current_interactable.name == "Boxes": # day 1/2/3 when this triggers
@@ -176,11 +188,14 @@ func _butterfly_effect():
 		get_parent().get_node("DayManager/Day2/Boxes/BoxPhysical/Area2D").queue_free()
 		get_parent().get_node("DayManager/Day3/Boxes/BoxPhysical/Area2D").queue_free()
 		_player.play_animation("ObtainCoin")
+		_audio_controller.play_SFX("item_obtain_small.ogg")
+		# force_interactable(get_owner().get_node("DayManager/Day3/ForcedInteractablePeach"))
 	elif _current_interactable.name == "VendingMachine": # day2 when this triggers
 		var day3_vending_machine = get_parent().get_node("DayManager/Day3/VendingMachine")
 		_current_interactable.set_dialog_file("Day2_VendingMachine_fulfilled.json") # no need to change dialog set to inital since vending machine has same lines for both inital and loop lines
 		day3_vending_machine.set_dialog_file("Day3_VendingMachine_fulfilled.json")
 		_player.play_animation("ObtainDrink")
+		_audio_controller.play_SFX("item_obtain_small.ogg")
 	elif _current_interactable.name == "Monkey": # day1 when this triggers
 		var day2_monkey = get_parent().get_node("DayManager/Day2/Monkey")
 		var day3_monkey = get_parent().get_node("DayManager/Day3/Monkey")
@@ -194,11 +209,13 @@ func _butterfly_effect():
 		get_parent().get_node("DayManager/Day2/StaticProps/peach_box").modulate.a = 0
 		get_parent().get_node("DayManager/Day3/StaticProps/peach_box").modulate.a = 0
 		_player.play_animation("ObtainPeaches")
+		_audio_controller.play_SFX("item_obtain_big.ogg")
 	elif _current_interactable.name == "Crane": # day2 when this triggers
 		var day3_crane = get_parent().get_node("DayManager/Day3/Crane")
 		day3_crane.set_dialog_file("Day3_Crane_fulfilled.json")
 		day3_crane.set_current_dialog_set(ConstsEnums.DIALOG_SET.INITIAL)
 		_player.play_animation("ObtainSeeds")
+		_audio_controller.play_SFX("item_obtain_small.ogg")
 	elif _current_interactable.name == "FertileSoil" && _current_interactable.get_parent().name == "Day1": # day1 when this triggers
 		_current_interactable.get_node("FertileSoilPhysical/Area2D").queue_free()
 		get_parent().get_node("DayManager/Day1/StaticProps/rice_plant_1").modulate.a = 1
@@ -209,16 +226,18 @@ func _butterfly_effect():
 		_current_interactable.queue_free()
 		get_parent().get_node("DayManager/Day3/StaticProps/rice_plant_3").modulate.a = 0
 		_player.play_animation("ObtainVeggie")
+		_audio_controller.play_SFX("item_obtain_big.ogg")
 	elif _current_interactable.name == "Window": # day2 trigger
 		var day3_ox_mom = get_parent().get_node("DayManager/Day3/OxMom")
 		day3_ox_mom.set_dialog_file("Day3_OxMom_alt.json") # logically need an alt dialog for story to make sense
 		_current_interactable.queue_free()
 	elif _current_interactable.name == "OxMom": # day3 trigger
 		_player.play_animation("ObtainSauce")
+		_audio_controller.play_SFX("item_obtain_big.ogg")
 	elif _current_interactable.name == "Turtle" && get_parent().name == "FlatWorld1": # triggers in flatworld1
 		var frog = get_parent().get_node("Frog")
 		frog.set_dialog_read(true) # skip any initial dialog, go straight to important dialog
 	elif _current_interactable.name == "Turtle" && get_parent().name == "FlatWorld2":
 		get_parent().get_node("CameraFlatWorld").camera_end_frame()
-		get_parent().get_node("Walls/StaticBody2D2").position.x -= 900
+		get_parent().get_node("Walls/StaticBody2D2").position.x -= 1100
 		

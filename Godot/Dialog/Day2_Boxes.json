@@ -1,6 +1,6 @@
 {
 	"initial" : {
-		"1" : {"name":"Boxes", "text":"", "animation":"Idle"},
+		"1" : {"name":"Boxes", "text":"(searching box)", "animation":"Idle"},
 	},
 	"loop" : {
 		"1" : {"name":"Boxes", "text":"", "animation":"Idle"}

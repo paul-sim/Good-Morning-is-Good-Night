@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://Scripts/CameraFlatWorld.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=2]
@@ -63,6 +63,7 @@
 [ext_resource path="res://Scenes/AudioController.tscn" type="PackedScene" id=61]
 [ext_resource path="res://Sprites/Props/White_Square.png" type="Texture" id=62]
 [ext_resource path="res://Sprites/Props/time_stone.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Props/hills_bg_flat.png" type="Texture" id=64]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -567,7 +568,7 @@ texture = ExtResource( 9 )
 [node name="black line" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -462.786, 82.758 )
-scale = Vector2( 1500, 0.15 )
+scale = Vector2( 1500, 0.3 )
 z_index = -10
 texture = ExtResource( 45 )
 
@@ -597,7 +598,7 @@ position = Vector2( 130.455, 9.82324 )
 shape = SubResource( 3 )
 
 [node name="FixPosition" type="Node2D" parent="CameraFixPoints/StickRight_Area2D"]
-position = Vector2( 0, 66.7758 )
+position = Vector2( -1.33496, 26.7306 )
 
 [node name="PlayerFlatWorld" type="KinematicBody2D" parent="."]
 position = Vector2( 0, 69.6557 )
@@ -1368,6 +1369,30 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+layer = -99
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( -380.267, 0 )
+texture = ExtResource( 64 )
+
+[node name="Sprite2" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 966.681, 0.107208 )
+texture = ExtResource( 64 )
+
+[node name="Sprite3" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 2313.9, 0.24987 )
+texture = ExtResource( 64 )
+
+[node name="Sprite4" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 3661.23, 0.222801 )
+texture = ExtResource( 64 )
 
 [node name="SceneManager" type="Node2D" parent="."]
 script = ExtResource( 16 )

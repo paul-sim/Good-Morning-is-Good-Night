@@ -106,7 +106,7 @@ extents = Vector2( 149.703, 157.521 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 248.75, 121.72 )
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=9]
 resource_name = "Idle"
 loop = true
 tracks/0/type = "value"
@@ -122,10 +122,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 135.037, 133.114 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("VendingMachinePhysical/Sprite:frame")
@@ -140,10 +140,10 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 183.155, 91.1367 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("BoxPhysical/Sprite:frame")
@@ -158,10 +158,10 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 154.734, 133.114 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -177,10 +177,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 205.347, 190.912 )
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -220,7 +220,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("MonkeyPhysical/Sprite:texture")
@@ -259,23 +259,22 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 231.547, 166.139 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 176.098, 204.948 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 270.497, 713.874 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 350.704, 121.89 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 356.461, 114.602 )
 
-[sub_resource type="Animation" id=23]
-resource_name = "Idle"
+[sub_resource type="Animation" id=24]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -291,7 +290,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=25]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -307,7 +306,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=26]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -331,6 +330,10 @@ _day = 3
 scale = Vector2( 1.333, 1.333 )
 z_index = -10
 texture = ExtResource( 1 )
+
+[node name="ForcedInteractablePeach" type="Node2D" parent="."]
+scale = Vector2( 1.333, 1.333 )
+script = ExtResource( 2 )
 
 [node name="Crane" type="Node2D" parent="."]
 rotation = -2.28813
@@ -479,7 +482,7 @@ rotation = 0.506145
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Turtle"]
 autoplay = "Idle"
-anims/Idle = SubResource( 26 )
+anims/Idle = SubResource( 9 )
 
 [node name="VendingMachine" type="Node2D" parent="."]
 rotation = 2.6337
@@ -499,7 +502,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VendingMachine/VendingMachinePhysical/Area2D"]
 position = Vector2( 3.57727, 139.076 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="SpeechBubblePosition" type="Node2D" parent="VendingMachine/VendingMachinePhysical"]
 position = Vector2( -39.3176, 106.025 )
@@ -507,7 +510,7 @@ rotation = 0.506145
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VendingMachine"]
 autoplay = "Idle"
-anims/Idle = SubResource( 10 )
+anims/Idle = SubResource( 11 )
 
 [node name="Boxes" type="Node2D" parent="."]
 rotation = 2.6337
@@ -528,7 +531,7 @@ texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/BoxPhysical/Area2D"]
 position = Vector2( 1.27267, 20.893 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="SpeechBubblePosition" type="Node2D" parent="Boxes/BoxPhysical"]
 position = Vector2( -6.75995, 72.7419 )
@@ -536,7 +539,7 @@ rotation = 0.506145
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boxes"]
 autoplay = "Idle"
-anims/Idle = SubResource( 12 )
+anims/Idle = SubResource( 13 )
 
 [node name="Frog" type="Node2D" parent="."]
 rotation = 3.91303
@@ -557,7 +560,7 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Frog/FrogPhysical/Area2D"]
 position = Vector2( 24.752, -52.3717 )
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="SpeechBubblePosition" type="Node2D" parent="Frog/FrogPhysical"]
 position = Vector2( 89.694, 12.8687 )
@@ -565,7 +568,7 @@ rotation = 0.506145
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Frog"]
 autoplay = "Idle"
-anims/Idle = SubResource( 14 )
+anims/Idle = SubResource( 15 )
 
 [node name="Monkey" type="Node2D" parent="."]
 rotation = 3.2149
@@ -585,7 +588,7 @@ hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monkey/MonkeyPhysical/Area2D"]
 position = Vector2( 17.5803, -116.751 )
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="SpeechBubblePosition" type="Node2D" parent="Monkey/MonkeyPhysical"]
 position = Vector2( 6.36801, 55.7845 )
@@ -593,8 +596,8 @@ rotation = 0.506145
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Monkey"]
 autoplay = "Idle"
-anims/FullHappy = SubResource( 16 )
-anims/Idle = SubResource( 17 )
+anims/FullHappy = SubResource( 17 )
+anims/Idle = SubResource( 18 )
 
 [node name="OxMom" type="Node2D" parent="."]
 rotation = 1.70344
@@ -616,7 +619,7 @@ texture = ExtResource( 38 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OxMom/OxMomPhysical/Area2D"]
 position = Vector2( 39.007, -12.1541 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="SpeechBubblePosition" type="Node2D" parent="OxMom/OxMomPhysical"]
 position = Vector2( -168.477, -50.512 )
@@ -631,7 +634,7 @@ script = ExtResource( 53 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoseTimeMachineTrigger/Area2D"]
 position = Vector2( -62.2957, 139.693 )
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="Wall" type="Node2D" parent="."]
 
@@ -647,7 +650,7 @@ texture = ExtResource( 3 )
 scale = Vector2( 0.233969, 0.233969 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Fence/Sprite/StopRight_Area2D"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 
 [node name="FenceErectHolder" type="Node2D" parent="Wall"]
 position = Vector2( -978.803, -6.72705 )
@@ -657,7 +660,7 @@ position = Vector2( -978.803, -6.72705 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/FenceErectHolder/FenceErect_Area2D"]
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="DoorErectHolder" type="Node2D" parent="Wall"]
 position = Vector2( 1005.71, -10.0906 )
@@ -667,7 +670,7 @@ position = Vector2( 1005.71, -10.0906 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/DoorErectHolder/DoorErect_Area2D"]
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="StaticProps" type="Node2D" parent="."]
 
@@ -686,7 +689,7 @@ hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/dragonfly2/Sprite"]
 autoplay = "Idle"
-anims/Idle = SubResource( 23 )
+anims/Idle = SubResource( 24 )
 
 [node name="Tree_2" type="Sprite" parent="StaticProps"]
 position = Vector2( -286.114, -1083.2 )
@@ -945,7 +948,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/OxSon"]
 autoplay = "Idle"
-anims/Idle = SubResource( 24 )
+anims/Idle = SubResource( 25 )
 
 [node name="ox_line" type="Sprite" parent="StaticProps"]
 position = Vector2( 1048.06, 199.425 )
@@ -966,7 +969,7 @@ hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/ox_butterfly_static"]
 autoplay = "Idle"
-anims/Idle = SubResource( 25 )
+anims/Idle = SubResource( 26 )
 
 [node name="House_3" type="Sprite" parent="StaticProps"]
 position = Vector2( -948.031, -649.726 )

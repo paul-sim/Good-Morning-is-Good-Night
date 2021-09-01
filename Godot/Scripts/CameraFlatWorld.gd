@@ -11,11 +11,11 @@ var shake_x = 0
 var shake_y = 0
 
 var time = 0
-const MAX_SHAKE_DISTANCE = 10
+const MAX_SHAKE_DISTANCE = 20
 const MAX_ROTATE_DISTANCE = 3
 var trauma = 0
-var time_scale = 300 # the bigger, the faster it shakes
-var shake_entropy = 1.0 # for decaying or accelerating shake
+var time_scale = 600 # the bigger, the faster it shakes
+var shake_entropy = 0.5 # for decaying or accelerating shake
 
 var _camera_to_player = true
 var _camera_fix_on_position = false
@@ -27,6 +27,8 @@ var _at_end = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.position.y = _player.position.y
+	self.position.y -= ConstsEnums.CAMERA_FLAT_WORLD_Y_OFFSET
 	pass
 
 func _process(delta):

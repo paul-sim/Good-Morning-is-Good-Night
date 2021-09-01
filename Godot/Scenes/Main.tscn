@@ -152,7 +152,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -200 ), Vector2( 0, -200 ), Vector2( 0, -150 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=9]
 resource_name = "Idle"
 length = 8.0
 tracks/0/type = "value"
@@ -168,7 +168,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=10]
 resource_name = "Idle"
 length = 0.001
 tracks/0/type = "value"
@@ -196,7 +196,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=11]
 resource_name = "Thinking"
 length = 6.0
 tracks/0/type = "value"
@@ -248,7 +248,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=12]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("door_open_backward:modulate")
@@ -275,7 +275,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=13]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("door_open_backward:modulate")
@@ -314,7 +314,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 4, 3, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=14]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("door_open_backward:modulate")
@@ -365,10 +365,10 @@ tracks/3/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 6.12939, 94.3094 )
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=16]
 emission_shape = 2
 emission_box_extents = Vector3( 1500, 1, 1 )
 flag_disable_z = true
@@ -381,10 +381,10 @@ scale = 2.0
 scale_random = 0.5
 color = Color( 0.592157, 0.784314, 1, 1 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 10, 132.605 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 10, 132.605 )
 
 [node name="Main" type="Node2D"]
@@ -491,7 +491,7 @@ texture = ExtResource( 34 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/PlayerPhysical/confused_sprite"]
 autoplay = "Idle"
-anims/Idle = SubResource( 16 )
+anims/Idle = SubResource( 9 )
 
 [node name="thought" type="Sprite" parent="Player/PlayerPhysical"]
 modulate = Color( 1, 1, 1, 0 )
@@ -505,8 +505,8 @@ texture = ExtResource( 35 )
 
 [node name="Thinking_AnimationPlayer" type="AnimationPlayer" parent="Player/PlayerPhysical/thinking"]
 autoplay = "Idle"
-anims/Idle = SubResource( 17 )
-anims/Thinking = SubResource( 18 )
+anims/Idle = SubResource( 10 )
+anims/Thinking = SubResource( 11 )
 
 [node name="Inventory" type="Node2D" parent="Player"]
 script = ExtResource( 22 )
@@ -547,21 +547,21 @@ texture = ExtResource( 29 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Door/DoorPhysical/DoorSprite"]
 autoplay = "Idle"
-anims/Idle = SubResource( 9 )
-anims/OpenBackward = SubResource( 10 )
-anims/OpenForward = SubResource( 11 )
+anims/Idle = SubResource( 12 )
+anims/OpenBackward = SubResource( 13 )
+anims/OpenForward = SubResource( 14 )
 
 [node name="Forward_Area2D" type="Area2D" parent="Door/DoorPhysical"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/DoorPhysical/Forward_Area2D"]
 position = Vector2( 34.4921, -75.4185 )
-shape = SubResource( 12 )
+shape = SubResource( 15 )
 
 [node name="Backward_Area2D" type="Area2D" parent="Door/DoorPhysical"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/DoorPhysical/Backward_Area2D"]
 position = Vector2( 195.891, -75.9778 )
-shape = SubResource( 12 )
+shape = SubResource( 15 )
 
 [node name="DayManager" type="Node2D" parent="."]
 script = ExtResource( 11 )
@@ -580,7 +580,7 @@ lifetime = 8.0
 preprocess = 5.0
 speed_scale = 2.0
 visibility_rect = Rect2( -1800, -100, 3000, 3000 )
-process_material = SubResource( 13 )
+process_material = SubResource( 16 )
 texture = ExtResource( 28 )
 
 [node name="Day3" parent="DayManager" instance=ExtResource( 26 )]
@@ -671,14 +671,14 @@ position = Vector2( -236.238, 606.065 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sky/ToNight_Area2D"]
 position = Vector2( 95.3517, 230.963 )
-shape = SubResource( 14 )
+shape = SubResource( 17 )
 
 [node name="ToDay_Area2D2" type="Area2D" parent="Sky"]
 position = Vector2( 35.524, 608.205 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sky/ToDay_Area2D2"]
 position = Vector2( 95.3517, 230.963 )
-shape = SubResource( 15 )
+shape = SubResource( 18 )
 [connection signal="animation_finished" from="Player/PlayerPhysical/KinematicBody2D/Sprite/AnimationPlayer" to="Player" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Player/PlayerPhysical/Player_Area2D" to="Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Player/PlayerPhysical/Player_Area2D" to="Player" method="_on_Player_Area2D_area_exited"]

@@ -18,6 +18,7 @@ func _ready():
 func change_scene(scene):
 	if get_parent().name == "FlatWorld1":
 		get_owner().find_node("PlayerFlatWorld").disable_movement()
+		get_owner().get_node("AudioController").play_ambiance("earthquake.ogg")
 		$AnimationPlayer.play("GetTimeMachine")
 		$AnimationPlayer.queue("Idle")
 	elif get_parent().name == "Main":

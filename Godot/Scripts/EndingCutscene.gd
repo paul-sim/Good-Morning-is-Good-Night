@@ -19,8 +19,12 @@ func _ready():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Idle":
 		$Sprite3/Fade_AnimationPlayer.play("Fade_ToWhite")
-	pass # Replace with function body.
 
 func _on_Fade_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Fade_ToWhite":
-		get_tree().change_scene("res://Scenes/Credits.tscn")
+		get_tree().change_scene("res://Scenes/FlatWorld2.tscn")
+
+
+func _on_AnimationPlayer2_animation_finished(anim_name):
+	if anim_name == "Wait_Time_Before_Screen_Shake":
+		$Camera2D.shake()

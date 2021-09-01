@@ -1,6 +1,6 @@
 {
 	"initial" : {
-		"1" : {"name":"VendingMachine", "text":"", "animation":"Idle"},
+		"1" : {"name":"VendingMachine", "text":"\"dispensing peach soda\"", "animation":"Idle"},
 	},
 	"loop" : {
 		"1" : {"name":"VendingMachine", "text":"", "animation":"Idle"}

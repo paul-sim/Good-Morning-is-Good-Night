@@ -99,6 +99,7 @@ func _on_Player_Area2D_area_exited(area):
 
 func disable_movement() -> void:
 	_move_enabled = false
+	_is_moving = false
 	_anim_player.play("Idle")
 	# _velocity = _velocity.move_toward(Vector2.ZERO, FRICTION) # if we don't do this, player will slide a bit when they finish a conversation
 

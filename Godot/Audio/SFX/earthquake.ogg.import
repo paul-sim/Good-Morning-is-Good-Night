@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/earthquake.ogg-f044d73f65e8865c923db9dce3f41dfa.oggstr"
+
+[deps]
+
+source_file="res://Audio/SFX/earthquake.ogg"
+dest_files=[ "res://.import/earthquake.ogg-f044d73f65e8865c923db9dce3f41dfa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

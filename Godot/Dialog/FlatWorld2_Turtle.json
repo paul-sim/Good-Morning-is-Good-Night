@@ -1,6 +1,6 @@
 {
 	"initial" : {
-		"1" : {"name":"Turtle", "text":"this is the end", "animation":""},
+		"1" : {"name":"Turtle", "text":"this is the end dialog", "animation":""},
 		"2" : {"name":"Turtle", "text":"good bye", "animation":""},
 	},
 	"loop" : {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://Scripts/CameraFlatWorld.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=2]
@@ -60,6 +60,10 @@
 [ext_resource path="res://Sprites/Props/Door_Forward_Sheet.png" type="Texture" id=58]
 [ext_resource path="res://Sprites/Props/Door_bg.png" type="Texture" id=59]
 [ext_resource path="res://Scripts/FinalDoor.gd" type="Script" id=60]
+[ext_resource path="res://Scenes/AudioController.tscn" type="PackedScene" id=61]
+[ext_resource path="res://Sprites/Props/lantern_wed.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Props/lantern_bg.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Props/lantern_flags.png" type="Texture" id=64]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -265,7 +269,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 224.481, 145.555 )
+extents = Vector2( 365.827, 145.555 )
 
 [sub_resource type="Animation" id=22]
 resource_name = "Idle"
@@ -337,7 +341,7 @@ texture = ExtResource( 9 )
 [node name="black line" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -462.786, 82.758 )
-scale = Vector2( 1500, 0.15 )
+scale = Vector2( 1500, 0.3 )
 z_index = -10
 texture = ExtResource( 45 )
 
@@ -347,10 +351,12 @@ current = true
 script = ExtResource( 1 )
 noise = SubResource( 1 )
 
+[node name="AudioController" parent="." instance=ExtResource( 61 )]
+
 [node name="CameraFixPoints" type="Node2D" parent="."]
 
 [node name="StickLeft_Area2D" type="Area2D" parent="CameraFixPoints"]
-position = Vector2( 2778.76, 3.53598 )
+position = Vector2( 3220.76, 3.536 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFixPoints/StickLeft_Area2D"]
 position = Vector2( -182.359, -3.20355 )
@@ -367,13 +373,13 @@ position = Vector2( 130.455, 9.82324 )
 shape = SubResource( 3 )
 
 [node name="FixPosition" type="Node2D" parent="CameraFixPoints/StickRight_Area2D"]
-position = Vector2( 0, 66.7758 )
+position = Vector2( -1.335, 26.731 )
 
 [node name="camera_end_frame" type="Node2D" parent="."]
-position = Vector2( 5955.88, 59.7329 )
+position = Vector2( 5755.88, 26.731 )
 
 [node name="PlayerFlatWorld" type="KinematicBody2D" parent="."]
-position = Vector2( 3188.61, 69.656 )
+position = Vector2( 3599.15, 69.656 )
 z_index = 10
 script = ExtResource( 11 )
 
@@ -404,6 +410,7 @@ script = ExtResource( 10 )
 position = Vector2( 0, -202.656 )
 
 [node name="Goose" type="Node2D" parent="."]
+visible = false
 position = Vector2( 5433.56, -45.9967 )
 rotation = 0.113446
 z_index = 12
@@ -429,6 +436,7 @@ autoplay = "Idle"
 anims/Idle = SubResource( 11 )
 
 [node name="OxMom" type="Node2D" parent="."]
+visible = false
 position = Vector2( 5574.11, 279.064 )
 z_index = 15
 script = ExtResource( 2 )
@@ -452,6 +460,7 @@ autoplay = "Idle"
 anims/Idle = SubResource( 13 )
 
 [node name="OxSon" type="Node2D" parent="."]
+visible = false
 position = Vector2( 5365.15, 280.415 )
 z_index = 15
 script = ExtResource( 2 )
@@ -469,8 +478,7 @@ autoplay = "Idle"
 anims/Idle = SubResource( 14 )
 
 [node name="VendingMachine" type="Node2D" parent="."]
-visible = false
-position = Vector2( 2134.38, -25.3518 )
+position = Vector2( 2293.2, -22.3551 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="VendingMachine"]
@@ -486,7 +494,7 @@ shape = SubResource( 15 )
 disabled = true
 
 [node name="Monkey" type="Node2D" parent="."]
-position = Vector2( 5078.42, 300.276 )
+position = Vector2( 2883.64, 259.958 )
 z_index = 1
 script = ExtResource( 2 )
 
@@ -509,8 +517,8 @@ autoplay = "Idle"
 anims/Idle = SubResource( 17 )
 
 [node name="Frog" type="Node2D" parent="."]
-position = Vector2( 5031.98, -6.20491 )
-z_index = 1
+position = Vector2( 3414.44, 108.252 )
+z_index = 15
 script = ExtResource( 2 )
 _item_wanted = "time_ticket"
 _dont_show_fulfill = true
@@ -518,7 +526,6 @@ _dont_show_fulfill = true
 [node name="Sprite" type="Sprite" parent="Frog"]
 position = Vector2( 53.4539, 97.9989 )
 texture = ExtResource( 14 )
-flip_h = true
 hframes = 3
 frame = 1
 
@@ -537,8 +544,8 @@ autoplay = "Idle"
 anims/Idle = SubResource( 19 )
 
 [node name="Crane" type="Node2D" parent="."]
-position = Vector2( 5621.99, 3.51637 )
-z_index = 2
+position = Vector2( 4290.68, 234.203 )
+z_index = 15
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Crane"]
@@ -580,7 +587,7 @@ position = Vector2( 29.665, -2.11893 )
 shape = SubResource( 21 )
 
 [node name="FinalDoor" type="Node2D" parent="."]
-position = Vector2( 6557.86, 28.0309 )
+position = Vector2( 6371.86, 26.0309 )
 script = ExtResource( 60 )
 
 [node name="Sprite2" type="Sprite" parent="FinalDoor"]
@@ -620,7 +627,7 @@ texture = ExtResource( 8 )
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
-position = Vector2( 2067.19, 26.1223 )
+position = Vector2( 2479.22, 23.1257 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
 shape = SubResource( 25 )
@@ -1002,6 +1009,32 @@ position = Vector2( 5691.14, -27.55 )
 z_index = -1
 texture = ExtResource( 39 )
 
+[node name="Lantern" type="Node2D" parent="StaticProps"]
+position = Vector2( 5235.49, 21.7707 )
+
+[node name="Sprite" type="Sprite" parent="StaticProps/Lantern"]
+texture = ExtResource( 63 )
+
+[node name="Sprite2" type="Sprite" parent="StaticProps/Lantern"]
+position = Vector2( 0, -76.8886 )
+texture = ExtResource( 64 )
+
+[node name="Sprite3" type="Sprite" parent="StaticProps/Lantern"]
+position = Vector2( -4.49023, -85.8684 )
+texture = ExtResource( 62 )
+
+[node name="Sprite4" type="Sprite" parent="StaticProps/Lantern"]
+modulate = Color( 1, 0.670588, 0.0392157, 0.435294 )
+position = Vector2( -123.744, -73.5391 )
+scale = Vector2( 0.407, 0.407 )
+texture = ExtResource( 48 )
+
+[node name="Sprite5" type="Sprite" parent="StaticProps/Lantern"]
+modulate = Color( 1, 0.670588, 0.0392157, 0.435294 )
+position = Vector2( 129.401, -76.3675 )
+scale = Vector2( 0.407, 0.407 )
+texture = ExtResource( 48 )
+
 [node name="FoodCart_1" type="Sprite" parent="StaticProps"]
 position = Vector2( 5479.65, 112.485 )
 z_index = 11
@@ -1012,6 +1045,7 @@ position = Vector2( -105.126, -70.3809 )
 scale = Vector2( 0.867, 0.867 )
 texture = ExtResource( 48 )
 color = Color( 1, 0.670588, 0.0392157, 1 )
+energy = 0.27
 
 [node name="InteractableManager" type="Node2D" parent="."]
 script = ExtResource( 13 )
@@ -1019,6 +1053,7 @@ script = ExtResource( 13 )
 [node name="DialogManager" parent="." instance=ExtResource( 12 )]
 
 [node name="SceneManager" parent="." instance=ExtResource( 16 )]
+position = Vector2( 0.561035, 0 )
 
 [node name="Sky" type="Node2D" parent="."]
 

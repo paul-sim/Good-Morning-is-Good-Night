@@ -9,8 +9,10 @@ technical:
 
 - add sound fx
 - add moving-through-door animation for bunny
+- add moving-through-door sfx
 - add snails racing
 
 - change beginning restaurant stall to say "wednesday" instead of monday
 - add goose animation for day 2
 - change goose text for day 1
+- when vending machine dispense peach soda, add dialog that says that it's peach soda

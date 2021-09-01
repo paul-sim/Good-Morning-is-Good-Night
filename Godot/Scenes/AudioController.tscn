@@ -178,11 +178,43 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=11]
 resource_name = "Ambiance_FadeIn"
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Ambiance_FadeOut"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Ambiance_FadeIn"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -198,7 +230,7 @@ tracks/0/keys = {
 resource_name = "Ambiance_FadeOut"
 length = 2.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -211,39 +243,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-resource_name = "Ambiance_FadeIn"
-length = 2.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -80.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "Ambiance_FadeOut"
-length = 2.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -80.0 ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "Rain_FadeIn"
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain_AudioStreamPlayer:volume_db")
@@ -258,8 +257,7 @@ tracks/0/keys = {
 "values": [ -80.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "Rain_FadeOut"
+[sub_resource type="Animation" id=16]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain_AudioStreamPlayer:volume_db")
@@ -323,13 +321,13 @@ anims/long_fadeout = SubResource( 10 )
 volume_db = -80.0
 
 [node name="Ambiance_AnimationPlayer" type="AnimationPlayer" parent="Ambiance"]
+anims/Ambiance_FadeIn = SubResource( 11 )
+anims/Ambiance_FadeOut = SubResource( 12 )
+
+[node name="Ambiance_AnimationPlayer2" type="AnimationPlayer" parent="Ambiance"]
 anims/Ambiance_FadeIn = SubResource( 13 )
 anims/Ambiance_FadeOut = SubResource( 14 )
 
-[node name="Ambiance_AnimationPlayer2" type="AnimationPlayer" parent="Ambiance"]
-anims/Ambiance_FadeIn = SubResource( 15 )
-anims/Ambiance_FadeOut = SubResource( 16 )
-
 [node name="Rain_AnimationPlayer" type="AnimationPlayer" parent="Ambiance"]
-anims/Rain_FadeIn = SubResource( 11 )
-anims/Rain_FadeOut = SubResource( 12 )
+anims/Rain_FadeIn = SubResource( 15 )
+anims/Rain_FadeOut = SubResource( 16 )

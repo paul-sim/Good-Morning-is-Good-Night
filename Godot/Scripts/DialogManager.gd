@@ -90,8 +90,10 @@ func _get_character_pos(character_name) -> float:
 	if get_parent().name == "FlatWorld1" || get_parent().name == "FlatWorld2":
 		return get_parent().find_node(character_name).find_node("SpeechBubblePosition").get_global_position()
 	else:
-		return (_day_manager.get_current_day_object().find_node(character_name, true, false)).find_node("SpeechBubblePosition").get_global_position()
-
+		if character_name != "Player":
+			return (_day_manager.get_current_day_object().find_node(character_name, true, false)).find_node("SpeechBubblePosition").get_global_position()
+		else: # if dialog appears on player, we need to find player from the Main node and not a specific Day node
+			return (get_parent().get_node("Player")).find_node("SpeechBubblePosition").get_global_position()
 	# return (get_owner().find_node(character_name, true, false)).find_node("SpeechBubblePosition").get_global_position()
 
 func _play_anim(character_name, animation) -> void:
@@ -160,7 +162,7 @@ func show_interact_icon(current_interactable):
 			elif current_interactable.name == "Window":
 				_fulfill_label.text = "close windows"
 			elif current_interactable.name == "OxMom":
-				_fulfill_label.text = "congratulate her"
+				_fulfill_label.text = "mention the windows"
 			elif current_interactable.name == "Turtle":
 				_fulfill_label.text = "give ingredients"
 			_fulfill_node.position = current_interactable.get_speech_bubble_position().get_global_position()
@@ -171,6 +173,10 @@ func show_interact_icon(current_interactable):
 			_interact_icon.position = current_interactable.get_speech_bubble_position().get_global_position()
 
 func hide_interact_icon():
-	_interact_icon.position = ConstsEnums.HIDE_VECTOR
-	_interact_icon_finger.position = ConstsEnums.HIDE_VECTOR
-	_fulfill_node.position = ConstsEnums.HIDE_VECTOR
+	if _interact_icon != null:
+		_interact_icon.position = ConstsEnums.HIDE_VECTOR
+		_interact_icon_finger.position = ConstsEnums.HIDE_VECTOR
+		_fulfill_node.position = ConstsEnums.HIDE_VECTOR
+
+func destroy_interact_icon():
+	find_node("InteractIcon").queue_free()
