@@ -1,7 +1,8 @@
 {
 	"initial" : {
 		"1" : {"name":"OxMom", "text":"dearie me! all the rain got in", "animation":""},
-		"2" : {"name":"OxMom", "text":"it’s going to take all day to clean up this mess", "animation":""},
+        "2" : {"name":"OxMom", "text":"i must have left the window open yesterday", "animation":""},
+		"3" : {"name":"OxMom", "text":"it’s going to take all day to clean up this mess", "animation":""},
 	},
 	"loop" : {
 		"1" : {"name":"OxMom", "text":"i can’t believe i was so silly", "animation":""}

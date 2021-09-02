@@ -26,11 +26,12 @@ var sfx_switch = true
 var _footstep_on = false
 var _timer = 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(delta): # at every several milliseconds, play footstep
 	if _footstep_on:
 		_timer += delta
 		if _timer >= 0.35:
@@ -183,6 +184,9 @@ func play_long_fade():
 		_music_animationPlayer.play("long_fadeout")
 
 func play_footstep_sound():
+	# we don't want footstep overlaps which can cause clipping
+	_footstep_audioStreamPlayer.stop()
+	_footstep_audioStreamPlayer.seek(0) # after stopping current footstep, we need to set audio position to 0 to avoid clipping. i think it's because when we load a new footstep audio, it'll clip if previous footstep was mid-way
 	rng.randomize()
 	var num = rng.randi_range(1, 4)
 	_footstep_audioStreamPlayer.stream = load("res://Audio/SFX/footstep_grass_" + str(num) + ".ogg")
@@ -190,11 +194,18 @@ func play_footstep_sound():
 
 func play_footstep():
 	_footstep_on = true
-	# play_footstep_sound()
+	_timer = 0
+	play_footstep_sound() # causes audio clipping. for initial footstep without waiting for timer
 
 func stop_footstep():
 	_footstep_on = false
 
+func get_footstep_on():
+	return _footstep_on
+
 func play_item_obtain_sound(sfx):
 	_item_obtain_audioStreamPlayer.stream = load("res://Audio/SFX/" + sfx)
 	_item_obtain_audioStreamPlayer.play()
+
+func fade_out_footsteps():
+	$SFX/footstep_AnimationPlayer.play("FadeOut")

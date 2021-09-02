@@ -5,6 +5,8 @@
 		"3" : {"name":"Crane", "text":"the rice seeds?", "animation":""},
 		"4" : {"name":"Crane", "text":"here! why don’t you try grow one of your own?", "animation":""},
 		"5" : {"name":"Crane", "text":"it’ll take a few days to fully mature though", "animation":""},
+        "6" : {"name":"Crane", "text":"you're lucky you came today", "animation":""},
+        "7" : {"name":"Crane", "text":"i'll be all done by tonight", "animation":""},
 	},
 	"loop" : {
 		"1" : {"name":"Crane", "text":"the rain is so calming", "animation":""},

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/AudioController.gd" type="Script" id=1]
 
@@ -178,6 +178,22 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, -80.0 ]
 }
 
+[sub_resource type="Animation" id=17]
+resource_name = "FadeOut"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Footstep_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -4.643, -80.0 ]
+}
+
 [sub_resource type="Animation" id=11]
 resource_name = "Ambiance_FadeIn"
 length = 2.1
@@ -312,6 +328,9 @@ volume_db = -4.643
 autoplay = "init"
 anims/init = SubResource( 9 )
 anims/long_fadeout = SubResource( 10 )
+
+[node name="footstep_AnimationPlayer" type="AnimationPlayer" parent="SFX"]
+anims/FadeOut = SubResource( 17 )
 
 [node name="Ambiance" type="Node" parent="."]
 

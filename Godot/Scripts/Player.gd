@@ -41,36 +41,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-#
-#func initialize_for_world_type():
-#	if _in_world_type == ConstsEnums.WORLD.FLAT:
-#		self.rotation_degrees = 0
-#		$PlayerPhysical.position = Vector2.ZERO
-#	else: # you're in circle world
-#		# the player scene is already setup for circle world so no need to custom initialize it
-#		pass
-
-func _process(delta):
-	# check inventory every few seconds
-#	_timer += delta
-#	if _timer >= 5 && _thinking_played == false:
-#		_timer = 0
-#		# check inventory
-#		var inventory = $Inventory
-#		if inventory.has_item("peaches"):
-#			if inventory.has_item("veggie"):
-#				if inventory.has_item("sauce"):
-#					_thinking_played = true
-#					$PlayerPhysical/thinking/Thinking_AnimationPlayer.play("Thinking")
-#
-	pass
 
 func _physics_process(delta):
 	
 	if _move_enabled == false:
 		_audio_controller.stop_footstep()
 		return
-		
 	if _is_opening_door:
 		rotation_degrees += ConstsEnums.PLAYER_ROTATE_DOOR_INCREMENT * delta * ConstsEnums.PLAYER_SPEED_FACTOR * _door_open_direction
 		return
@@ -89,14 +65,16 @@ func _physics_process(delta):
 				_anim_player.play("Run")
 				rotation_degrees += ConstsEnums.PLAYER_ROTATE_INCREMENT * delta * ConstsEnums.PLAYER_SPEED_FACTOR
 				_last_run_direction = ConstsEnums.DIRECTION.RIGHT
-				_audio_controller.play_footstep()
+				if _audio_controller.get_footstep_on() == false:
+					_audio_controller.play_footstep()
 		elif (input_vector.x < 0):
 			if ! _stop_left_direction:
 				_sprite.flip_h = true
 				_anim_player.play("Run")
 				rotation_degrees -= ConstsEnums.PLAYER_ROTATE_INCREMENT * delta * ConstsEnums.PLAYER_SPEED_FACTOR
 				_last_run_direction = ConstsEnums.DIRECTION.LEFT
-				_audio_controller.play_footstep()
+				if _audio_controller.get_footstep_on() == false:
+					_audio_controller.play_footstep()
 		else: # player is pressing up or down
 			_audio_controller.stop_footstep()
 		#_previous_rotation_degrees = self.rotation_degrees
@@ -121,7 +99,7 @@ func _on_Area2D_area_entered(area):
 		_interactable_manager.area_entered(area)
 	elif temp is DOOR_CLASS:
 		if ! _is_opening_door:
-			_initiate_door_open(area.name)
+			_initiate_door_open(area.name, "short")
 			_day_manager.entered_door(area.name)
 
 func _on_Player_Area2D_area_exited(area):
@@ -143,13 +121,16 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 #	else:
 #		_interactable_manager.animation_finished()
 
-func _initiate_door_open(area_name):
+func _initiate_door_open(area_name, length):
 	if area_name == "Forward_Area2D":
 		_door_open_direction = 1
 	elif area_name == "Backward_Area2D":
 		_door_open_direction = -1
 	_camera.zoom_door()
-	_anim_player.play("OpenDoor")
+	if length == "short":
+		_anim_player.play("OpenDoor")
+	elif length == "long":
+		_anim_player.play("OpenDoorLong")
 	_is_opening_door = true
 
 func get_rotation_degrees():
@@ -201,8 +182,9 @@ func check_lose_time_machine():
 		if inventory.has_item("veggie"):
 			if inventory.has_item("sauce"):
 				# play cutscene
-				_move_enabled = false
-				_anim_player.play("Idle")
+				#_move_enabled = false
+				#_anim_player.play("Idle")
+				_initiate_door_open("Forward_Area2D", "long") # force walking animation as scene fades to white
 				get_parent().get_node("SceneManager").play_ending_cutscene()
 
 func has_all_key_items():

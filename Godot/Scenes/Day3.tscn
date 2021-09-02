@@ -474,7 +474,7 @@ rotation = 0.0471239
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 6 )
 hframes = 3
-frame = 1
+frame = 2
 
 [node name="Area2D" type="Area2D" parent="Turtle/TurtlePhysical" groups=[
 "Day3_Area2D",
@@ -719,6 +719,7 @@ rotation = 0.488692
 texture = ExtResource( 4 )
 
 [node name="stall_food_mon" type="Sprite" parent="StaticProps"]
+visible = false
 position = Vector2( 472.058, -978.748 )
 rotation = 0.488692
 texture = ExtResource( 29 )
@@ -755,20 +756,6 @@ texture = ExtResource( 41 )
 position = Vector2( -1229.38, -329.096 )
 rotation = -1.35438
 texture = ExtResource( 15 )
-
-[node name="Ricefield_Dirt" type="Sprite" parent="StaticProps"]
-position = Vector2( -703.523, 95.7639 )
-rotation = -1.68424
-texture = ExtResource( 13 )
-
-[node name="firefly1" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 45 )]
-position = Vector2( 58.1579, -48.4081 )
-
-[node name="firefly2" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 43 )]
-position = Vector2( -99.6494, 16.5496 )
-
-[node name="firefly3" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 44 )]
-position = Vector2( 95.4813, 37.8076 )
 
 [node name="Ricefield_Dirt3" type="Sprite" parent="StaticProps"]
 position = Vector2( -703.523, 95.7639 )
@@ -863,6 +850,22 @@ position = Vector2( -542.834, 1157.68 )
 rotation = 3.60061
 z_index = -1
 texture = ExtResource( 27 )
+
+[node name="Ricefield_Dirt" type="Sprite" parent="StaticProps"]
+position = Vector2( -703.523, 95.7639 )
+rotation = -1.68424
+texture = ExtResource( 13 )
+
+[node name="firefly1" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 45 )]
+position = Vector2( 58.1579, -48.4081 )
+
+[node name="firefly2" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 43 )]
+position = Vector2( -99.6494, 16.5496 )
+color = Color( 1, 0.670588, 0.0392157, 1 )
+
+[node name="firefly3" parent="StaticProps/Ricefield_Dirt" instance=ExtResource( 44 )]
+position = Vector2( 95.4813, 37.8076 )
+color = Color( 1, 0.670588, 0.0392157, 1 )
 
 [node name="Bridge_BG" type="Sprite" parent="StaticProps"]
 visible = false

@@ -2,9 +2,10 @@
 	"initial" : {
 		"1" : {"name":"Turtle", "text":"it's as busy as ever!", "animation":""},
 		"2" : {"name":"Turtle", "text":"what joy it is to cook for others!", "animation":""},
+        "3" : {"name":"Turtle", "text":"i'm already excited for the dinner rush tomorrow!", "animation":""},
 	},
 	"loop" : {
-		"1" : {"name":"Turtle", "text":"phew! more customers!", "animation":""}
+		"1" : {"name":"Turtle", "text":"phew! more customers! can't talk long", "animation":""}
 	},
 	"tag" : ""
 }

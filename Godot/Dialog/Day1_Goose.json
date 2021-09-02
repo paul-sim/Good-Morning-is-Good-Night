@@ -1,11 +1,11 @@
 {
 	"initial" : {
-		"1" : {"name":"Goose", "text":"today we got potatoes and bok choy", "animation":""},
-		"2" : {"name":"Goose", "text":"specially imported from across the river!", "animation":""},
+		"1" : {"name":"Goose", "text":"it's the start of the week", "animation":""},
+		"2" : {"name":"Goose", "text":"so the fall harvest from crane is fresh today!", "animation":""},
 	},
 	"loop" : {
-		"1" : {"name":"Goose", "text":"today we got potatoes and bok choy", "animation":""},
-		"2" : {"name":"Goose", "text":"specially imported from across the river!", "animation":""},
+		"1" : {"name":"Goose", "text":"it's the start of the week", "animation":""},
+		"2" : {"name":"Goose", "text":"so the fall harvest from crane is fresh today!", "animation":""},
 	},
 	"tag" : ""
 }

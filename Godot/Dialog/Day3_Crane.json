@@ -1,7 +1,7 @@
 {
 	"initial" : {
 		"1" : {"name":"Crane", "text":"phew - what do you think! all finished planting!", "animation":""},
-		"2" : {"name":"Crane", "text":"if only you came by earlier..", "animation":""},
+		"2" : {"name":"Crane", "text":"if only you came by earlier this week..", "animation":""},
 		"3" : {"name":"Crane", "text":"i could have given you a sprout of your own", "animation":""},
 	},
 	"loop" : {

@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/NPCs/crane_wed_1-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Props/FoodCart_1.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/stall_mon.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/market_wed.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Player/Rabbit-run-1-Sheet.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Props/Tree_3.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/Ground.png" type="Texture" id=8]
@@ -61,10 +61,10 @@
 [ext_resource path="res://Sprites/Props/lantern_flags.png" type="Texture" id=59]
 [ext_resource path="res://Sprites/Props/lantern_bg.png" type="Texture" id=60]
 [ext_resource path="res://Scenes/AudioController.tscn" type="PackedScene" id=61]
-[ext_resource path="res://Sprites/Props/White_Square.png" type="Texture" id=62]
 [ext_resource path="res://Sprites/Props/time_stone.png" type="Texture" id=63]
 [ext_resource path="res://Sprites/Props/hills_bg_flat.png" type="Texture" id=64]
 [ext_resource path="res://Sprites/Props/flower.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Props/Day_Sky.png" type="Texture" id=66]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -332,12 +332,13 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 2, 0, 1 ]
 }
 
 [sub_resource type="Animation" id=28]
-length = 40.0
+length = 50.0
 loop = true
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -345,7 +346,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 40 ),
+"times": PoolRealArray( 0, 50 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 6275.57, -314.612 ), Vector2( -1604.29, -314.612 ) ]
@@ -408,7 +409,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 1, 2, 0 ]
 }
 
 [sub_resource type="Animation" id=32]
@@ -882,6 +883,7 @@ texture = ExtResource( 48 )
 color = Color( 1, 0.670588, 0.0392157, 1 )
 
 [node name="stall_food_mon" type="Sprite" parent="StaticProps"]
+visible = false
 position = Vector2( -296.192, 6.35678 )
 texture = ExtResource( 40 )
 
@@ -1276,10 +1278,11 @@ color = Color( 1, 0.670588, 0.0392157, 1 )
 energy = 0.27
 
 [node name="dragonfly" type="Sprite" parent="StaticProps"]
-position = Vector2( 5876.71, -314.612 )
+position = Vector2( 6092.02, -314.612 )
 z_index = 20
 texture = ExtResource( 57 )
 hframes = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/dragonfly"]
 autoplay = "Idle"
@@ -1290,11 +1293,10 @@ autoplay = "Idle"
 anims/Idle = SubResource( 28 )
 
 [node name="dragonfly3" type="Sprite" parent="StaticProps"]
-position = Vector2( 5924.72, -314.612 )
+position = Vector2( 8574.37, -314.612 )
 z_index = 20
 texture = ExtResource( 57 )
 hframes = 3
-frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/dragonfly3"]
 autoplay = "Idle"
@@ -1305,11 +1307,10 @@ autoplay = "Idle"
 anims/Idle = SubResource( 30 )
 
 [node name="dragonfly2" type="Sprite" parent="StaticProps"]
-position = Vector2( 1626.63, -314.612 )
+position = Vector2( 2543.69, -314.612 )
 z_index = 20
 texture = ExtResource( 57 )
 hframes = 3
-frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticProps/dragonfly2"]
 autoplay = "Idle"
@@ -1405,7 +1406,7 @@ __meta__ = {
 layer = -99
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-motion_scale = Vector2( 0.3, 0.3 )
+motion_scale = Vector2( 0.3, 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
 position = Vector2( -380.267, 0 )
@@ -1443,14 +1444,14 @@ anims/Idle = SubResource( 40 )
 position = Vector2( 4293.52, 90.563 )
 scale = Vector2( 1183.69, 549.68 )
 z_index = 101
-texture = ExtResource( 62 )
+texture = ExtResource( 66 )
 
 [node name="white" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 111.039, 34.0917 )
 scale = Vector2( 261.697, 146.043 )
 z_index = 200
-texture = ExtResource( 62 )
+texture = ExtResource( 66 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="white"]
 autoplay = "Idle"

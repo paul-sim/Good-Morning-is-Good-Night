@@ -6,16 +6,19 @@
 		"4" : {"name":"Turtle", "text":"from all around town?", "animation":""},
 		"5" : {"name":"Turtle", "text":"how on earth did you..", "animation":""},
 		"6" : {"name":"Turtle", "text":"okay", "animation":""},
-		"7" : {"name":"Turtle", "text":"hmm.. i’ve got it", "animation":""},
-		"8" : {"name":"Turtle", "text":"the perfect sweet and savoury fall special!", "animation":""},
-		"9" : {"name":"Turtle", "text":"come back tomorrow night - and bring everyone", "animation":""},
-		"10" : {"name":"Turtle", "text":"i'll prepare a very special meal for them!", "animation":""},
-		"11" : {"name":"Turtle", "text":"hey..", "animation":""},
-		"12" : {"name":"Turtle", "text":"thank you", "animation":""},
-		"13" : {"name":"Turtle", "text":"to a brand new day, here we go :-)", "animation":""},
+		"7" : {"name":"Turtle", "text":"hmm.. what can i make with this..", "animation":""},
+		"8" : {"name":"Turtle", "text":"i've got it!", "animation":""},
+		"9" : {"name":"Turtle", "text":"the perfect sweet and savoury fall special!", "animation":""},
+		"10" : {"name":"Turtle", "text":"can you come back tomorrow night?", "animation":""},
+		"11" : {"name":"Turtle", "text":"and bring the whole town!", "animation":""},
+		"12" : {"name":"Turtle", "text":"i want to prepare a special meal for everyone!", "animation":""},
+		"13" : {"name":"Turtle", "text":"thank you rabbit", "animation":""},
+		"14" : {"name":"Turtle", "text":"you made my day", "animation":""},
+		"15" : {"name":"Turtle", "text":"i can't wait for tomorrow", "animation":""},
+		"16" : {"name":"Turtle", "text":"good night!", "animation":""},
 	},
 	"loop" : {
-		"1" : {"name":"Turtle", "text":"let's see.. a hint of the homemade sauce here and there..", "animation":""}
+		"1" : {"name":"Turtle", "text":"let's see.. a hint of the special sauce here and there..", "animation":""}
 	},
 	"tag" : ""
 }

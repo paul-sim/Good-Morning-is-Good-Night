@@ -56,12 +56,14 @@ func _physics_process(delta):
 			_sprite.flip_h = false
 			_anim_player.play("Run")
 			_last_run_direction = ConstsEnums.DIRECTION.RIGHT
-			_audio_controller.play_footstep()
+			if _audio_controller.get_footstep_on() == false:
+					_audio_controller.play_footstep()
 		elif (input_vector.x < 0):
 			_sprite.flip_h = true
 			_anim_player.play("Run")
 			_last_run_direction = ConstsEnums.DIRECTION.LEFT
-			_audio_controller.play_footstep()
+			if _audio_controller.get_footstep_on() == false:
+					_audio_controller.play_footstep()
 		else:
 			_audio_controller.stop_footstep()
 		_velocity = _velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
