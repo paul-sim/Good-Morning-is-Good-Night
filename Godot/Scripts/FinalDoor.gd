@@ -18,5 +18,7 @@ func _ready():
 # entered final door
 func _on_Area2D_area_entered(area):
 	_player.play_anim("FinalDoorExit")
+	get_parent().get_node("AudioController").play_door_SFX()
+	get_parent().get_node("AudioController/SFX/Door_AnimationPlayer").play("FadeOut")
 	get_node("Sprite/AnimationPlayer").play("OpenDoor")
 	get_parent().get_node("SceneManager").end_game()

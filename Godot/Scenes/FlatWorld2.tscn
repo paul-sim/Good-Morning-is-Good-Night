@@ -1032,7 +1032,7 @@ z_index = 12
 texture = ExtResource( 33 )
 
 [node name="Bush29" type="Sprite" parent="StaticProps"]
-position = Vector2( 6016.23, 69.6794 )
+position = Vector2( 5999.28, 63.3226 )
 z_index = 1
 texture = ExtResource( 33 )
 
@@ -1129,6 +1129,28 @@ texture = ExtResource( 33 )
 [node name="Bush10" type="Sprite" parent="StaticProps"]
 position = Vector2( 5323.5, 761.756 )
 z_index = 12
+texture = ExtResource( 33 )
+
+[node name="Bush19" type="Sprite" parent="StaticProps"]
+position = Vector2( 6499.5, 291.354 )
+z_index = 12
+texture = ExtResource( 33 )
+
+[node name="Bush31" type="Sprite" parent="StaticProps"]
+position = Vector2( 6406.27, 335.852 )
+z_index = 12
+texture = ExtResource( 33 )
+
+[node name="Bush32" type="Sprite" parent="StaticProps"]
+position = Vector2( 6109.62, 49.7969 )
+z_index = -1
+z_as_relative = false
+texture = ExtResource( 33 )
+
+[node name="Bush33" type="Sprite" parent="StaticProps"]
+position = Vector2( 6760.13, 357.041 )
+z_index = -1
+z_as_relative = false
 texture = ExtResource( 33 )
 
 [node name="Bush7" type="Sprite" parent="StaticProps"]
@@ -1280,19 +1302,19 @@ layer = -99
 motion_scale = Vector2( 0.3, 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( -380.267, 0 )
+position = Vector2( -380.267, -100 )
 texture = ExtResource( 65 )
 
 [node name="Sprite2" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 966.681, 0.107 )
+position = Vector2( 966.681, -100.107 )
 texture = ExtResource( 65 )
 
 [node name="Sprite3" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 2313.9, 0.25 )
+position = Vector2( 2313.9, -100.25 )
 texture = ExtResource( 65 )
 
 [node name="Sprite4" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 3661.23, 0.223 )
+position = Vector2( 3661.23, -100.223 )
 texture = ExtResource( 65 )
 [connection signal="area_entered" from="CameraFixPoints/StickLeft_Area2D" to="CameraFlatWorld" method="_on_StickLeft_Area2D_area_entered"]
 [connection signal="area_exited" from="CameraFixPoints/StickLeft_Area2D" to="CameraFlatWorld" method="_on_StickLeft_Area2D_area_exited"]

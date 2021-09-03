@@ -69,7 +69,7 @@
 [sub_resource type="OpenSimplexNoise" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 410.224, 244.35 )
+extents = Vector2( 344.615, 244.35 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 555.821, 244.35 )
@@ -489,7 +489,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=37]
-length = 3.5
+length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../PlayerFlatWorld/time_machine:offset")
 tracks/0/interp = 1
@@ -509,10 +509,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=38]
@@ -563,7 +563,7 @@ resource_name = "Idle"
 length = 0.001
 
 [sub_resource type="Animation" id=41]
-length = 3.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -571,10 +571,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1.5, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
 [node name="FlatWorld1" type="Node2D"]
@@ -606,7 +606,7 @@ noise = SubResource( 1 )
 [node name="StickLeft_Area2D" type="Area2D" parent="CameraFixPoints"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFixPoints/StickLeft_Area2D"]
-position = Vector2( -182.359, 3.09607 )
+position = Vector2( -226.904, 0 )
 shape = SubResource( 2 )
 
 [node name="FixPosition" type="Node2D" parent="CameraFixPoints/StickLeft_Area2D"]
@@ -630,7 +630,6 @@ script = ExtResource( 11 )
 [node name="Sprite" type="Sprite" parent="PlayerFlatWorld"]
 texture = ExtResource( 6 )
 hframes = 25
-frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerFlatWorld/Sprite"]
 autoplay = "Idle"
@@ -653,9 +652,8 @@ script = ExtResource( 10 )
 position = Vector2( 0, -202.656 )
 
 [node name="time_machine" type="Sprite" parent="PlayerFlatWorld"]
-modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 63 )
-offset = Vector2( 0, -220 )
+offset = Vector2( 0, -200 )
 
 [node name="Goose" type="Node2D" parent="."]
 position = Vector2( -162.311, -24.5799 )
@@ -727,7 +725,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 28 )
 
 [node name="SpeechBubblePosition" type="Node2D" parent="VendingMachine"]
-position = Vector2( -8.84619, -215.246 )
+position = Vector2( 0, -165.41 )
 
 [node name="Area2D" type="Area2D" parent="VendingMachine"]
 
@@ -1409,19 +1407,19 @@ layer = -99
 motion_scale = Vector2( 0.3, 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( -380.267, 0 )
+position = Vector2( -380.267, -100 )
 texture = ExtResource( 64 )
 
 [node name="Sprite2" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 966.681, 0.107208 )
+position = Vector2( 966.681, -100.107 )
 texture = ExtResource( 64 )
 
 [node name="Sprite3" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 2313.9, 0.24987 )
+position = Vector2( 2313.9, -100.25 )
 texture = ExtResource( 64 )
 
 [node name="Sprite4" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 3661.23, 0.222801 )
+position = Vector2( 3661.23, -100.223 )
 texture = ExtResource( 64 )
 
 [node name="SceneManager" type="Node2D" parent="."]
@@ -1441,6 +1439,7 @@ anims/FadeToWhite = SubResource( 39 )
 anims/Idle = SubResource( 40 )
 
 [node name="Sprite" type="Sprite" parent="SceneManager"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 4293.52, 90.563 )
 scale = Vector2( 1183.69, 549.68 )
 z_index = 101

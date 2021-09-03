@@ -90,7 +90,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2, 10.5, 13 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -80.0, 0.0, 0.0, -80.0 ]
+"values": [ -80.0, -6.058, -6.058, -80.0 ]
 }
 
 [node name="EndingCutscene" type="Node2D"]
@@ -125,6 +125,7 @@ anims/Audio_FadeIn = SubResource( 4 )
 anims/Wait_Time_Before_Screen_Shake_SFX = SubResource( 5 )
 
 [node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.766667 )
 position = Vector2( 64.4272, -32.9628 )
 scale = Vector2( 186.977, 102.885 )
 texture = ExtResource( 2 )
@@ -136,6 +137,7 @@ anims/Idle = SubResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -6.058
 autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AudioStreamPlayer"]

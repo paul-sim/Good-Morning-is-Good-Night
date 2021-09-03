@@ -559,12 +559,12 @@ position = Vector2( 108.217, -140.893 )
 texture = ExtResource( 18 )
 
 [node name="door_open_forward" type="Sprite" parent="Door/DoorPhysical/DoorSprite"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 173.587, -139.314 )
 texture = ExtResource( 23 )
 hframes = 5
 
 [node name="door_open_backward" type="Sprite" parent="Door/DoorPhysical/DoorSprite"]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 47.5784, -130.637 )
 texture = ExtResource( 30 )
 hframes = 5

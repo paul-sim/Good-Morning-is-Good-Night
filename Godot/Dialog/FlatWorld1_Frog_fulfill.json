@@ -8,7 +8,7 @@
 		"6" : {"name":"Frog", "text":"hmm..", "animation":""},
 		"7" : {"name":"Frog", "text":"looks like a piece of junk..", "animation":""},
 		"8" : {"name":"Frog", "text":"here you can have it", "animation":""},
-		"9" : {"name":"Frog", "text":"i'm looking for real treasures only..", "animation":""},
+		"9" : {"name":"Frog", "text":"i'm searching for real treasures only..", "animation":""},
 	},
 	"loop" : {
 		"1" : {"name":"Frog", "text":"time travel!", "animation":""}

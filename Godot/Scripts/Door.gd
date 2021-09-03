@@ -19,11 +19,13 @@ func _on_Forward_Area2D_area_entered(area):
 	hide_portals()
 	_sky.transition_to_day()
 	$DoorPhysical/DoorSprite/AnimationPlayer.play("OpenForward")
+	get_parent().get_node("AudioController").play_door_SFX()
 
 func _on_Backward_Area2D_area_entered(area):
 	hide_portals()
 	_sky.transition_to_night()
 	$DoorPhysical/DoorSprite/AnimationPlayer.play("OpenBackward")
+	get_parent().get_node("AudioController").play_door_SFX()
 
 func hide_portals():
 	_forward_area2D.position = ConstsEnums.HIDE_VECTOR

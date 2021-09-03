@@ -37,6 +37,7 @@ func _physics_process(delta):
 	
 	if _move_enabled == false:
 		_audio_controller.stop_footstep()
+		_velocity = Vector2.ZERO
 		return
 
 	if _is_opening_door:

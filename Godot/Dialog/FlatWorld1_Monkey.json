@@ -1,9 +1,9 @@
 {
 	"initial" : {
-		"1" : {"name":"Monkey", "text":"ate.. too much..", "animation":""},
+		"1" : {"name":"Monkey", "text":"ate.. too much.. peaches..", "animation":""},
 	},
 	"loop" : {
-		"1" : {"name":"Monkey", "text":"ate.. too much", "animation":""}
+		"1" : {"name":"Monkey", "text":"ate.. too much.. peaches..", "animation":""}
 	},
 	"tag" : ""
 }

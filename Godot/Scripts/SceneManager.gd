@@ -16,9 +16,9 @@ func _ready():
 #	pass
 
 func change_scene(scene):
-	if get_parent().name == "FlatWorld1":
+	if get_parent().name == "FlatWorld1": 	# going to main
 		get_owner().find_node("PlayerFlatWorld").disable_movement()
-		get_owner().get_node("AudioController").play_ambiance("earthquake.ogg")
+		get_owner().get_node("AudioController").play_earthquake()
 		$AnimationPlayer.play("GetTimeMachine")
 		$AnimationPlayer.queue("Idle")
 		# fade out fireflies, otherwise they shine through the white screen
@@ -52,6 +52,7 @@ func play_ending_cutscene():
 	get_owner().get_node("InteractableManager").disable_interactions()
 	get_owner().get_node("DayManager/Day3/Frog/FrogPhysical/Area2D").queue_free() # so we don't show interact icon
 	_audio_controller.stop_music()
+	_audio_controller.stop_ambiance()
 	_audio_controller.fade_out_footsteps()
 	$AnimationPlayer.play("EndingCutscene")
 	# fade out fireflies, otherwise they shine through the white screen

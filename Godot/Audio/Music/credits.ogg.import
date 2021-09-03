@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/credits.ogg-e5660bb057df8c0552146d64b05cb21c.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/credits.ogg"
+dest_files=[ "res://.import/credits.ogg-e5660bb057df8c0552146d64b05cb21c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

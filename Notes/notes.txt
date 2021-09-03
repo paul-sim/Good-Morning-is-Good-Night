@@ -4,3 +4,6 @@
 	- your day object's day is changed to the correct day via inspector
 	- all your area2Ds in the day are assigned the correct group
 	
+
+
+in project's settings under "Threads". when exporting for mac, use "single-safe". using multi threads crashes on mac.

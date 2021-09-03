@@ -1,9 +1,9 @@
 {
 	"initial" : {
-		"1" : {"name":"Crane", "text":"what a wonderful year for a harvest!", "animation":""},
+		"1" : {"name":"Crane", "text":"phew! all done for this year's harvest!", "animation":""},
 	},
 	"loop" : {
-		"1" : {"name":"Crane", "text":"what a wonderful year for a harvest!", "animation":""}
+		"1" : {"name":"Crane", "text":"phew! all done for this year's harvest!", "animation":""}
 	},
 	"tag" : ""
 }

@@ -1,6 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/AudioController.gd" type="Script" id=1]
+[ext_resource path="res://Audio/SFX/door.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Audio/SFX/earthquake.ogg" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 2.1
@@ -178,7 +180,7 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=11]
 resource_name = "FadeOut"
 length = 2.0
 tracks/0/type = "value"
@@ -194,11 +196,43 @@ tracks/0/keys = {
 "values": [ -4.643, -80.0 ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "Ambiance_FadeIn"
-length = 2.1
+[sub_resource type="Animation" id=18]
+resource_name = "FadeOut"
+length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/path = NodePath("Door_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -14.136, -80.0 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Init"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Door_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "FadeIn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Earthquake_AudioStreamPlayer:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -211,7 +245,21 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-resource_name = "Ambiance_FadeOut"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, -6.058 ]
+}
+
+[sub_resource type="Animation" id=13]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
@@ -226,8 +274,7 @@ tracks/0/keys = {
 "values": [ 0.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "Ambiance_FadeIn"
+[sub_resource type="Animation" id=14]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
@@ -239,11 +286,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -80.0, 0.0 ]
+"values": [ -80.0, -6.058 ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "Ambiance_FadeOut"
+[sub_resource type="Animation" id=15]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
@@ -258,7 +304,7 @@ tracks/0/keys = {
 "values": [ 0.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain_AudioStreamPlayer:volume_db")
@@ -273,7 +319,7 @@ tracks/0/keys = {
 "values": [ -80.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain_AudioStreamPlayer:volume_db")
@@ -324,31 +370,48 @@ anims/long_fadeout = SubResource( 8 )
 [node name="Footstep_AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
 volume_db = -4.643
 
+[node name="Door_AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 2 )
+volume_db = -14.136
+
+[node name="Earthquake_AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 3 )
+
 [node name="SFX_AnimationPlayer" type="AnimationPlayer" parent="SFX"]
 autoplay = "init"
 anims/init = SubResource( 9 )
 anims/long_fadeout = SubResource( 10 )
 
 [node name="footstep_AnimationPlayer" type="AnimationPlayer" parent="SFX"]
-anims/FadeOut = SubResource( 17 )
+anims/FadeOut = SubResource( 11 )
+
+[node name="Door_AnimationPlayer" type="AnimationPlayer" parent="SFX"]
+autoplay = "Init"
+anims/FadeOut = SubResource( 18 )
+anims/Init = SubResource( 19 )
+
+[node name="Earthquake_AnimationPlayer" type="AnimationPlayer" parent="SFX"]
+anims/FadeIn = SubResource( 21 )
 
 [node name="Ambiance" type="Node" parent="."]
 
 [node name="Ambiance_AudioStreamPlayer" type="AudioStreamPlayer" parent="Ambiance"]
+volume_db = -6.058
 
 [node name="Ambiance_AudioStreamPlayer2" type="AudioStreamPlayer" parent="Ambiance"]
+volume_db = -6.058
 
 [node name="Rain_AudioStreamPlayer" type="AudioStreamPlayer" parent="Ambiance"]
 volume_db = -80.0
 
 [node name="Ambiance_AnimationPlayer" type="AnimationPlayer" parent="Ambiance"]
-anims/Ambiance_FadeIn = SubResource( 11 )
-anims/Ambiance_FadeOut = SubResource( 12 )
+anims/Ambiance_FadeIn = SubResource( 12 )
+anims/Ambiance_FadeOut = SubResource( 13 )
 
 [node name="Ambiance_AnimationPlayer2" type="AnimationPlayer" parent="Ambiance"]
-anims/Ambiance_FadeIn = SubResource( 13 )
-anims/Ambiance_FadeOut = SubResource( 14 )
+anims/Ambiance_FadeIn = SubResource( 14 )
+anims/Ambiance_FadeOut = SubResource( 15 )
 
 [node name="Rain_AnimationPlayer" type="AnimationPlayer" parent="Ambiance"]
-anims/Rain_FadeIn = SubResource( 15 )
-anims/Rain_FadeOut = SubResource( 16 )
+anims/Rain_FadeIn = SubResource( 16 )
+anims/Rain_FadeOut = SubResource( 17 )

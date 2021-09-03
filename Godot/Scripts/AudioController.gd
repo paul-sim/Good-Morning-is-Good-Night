@@ -16,6 +16,8 @@ onready var _rain_audioStreamPlayer = self.find_node("Rain_AudioStreamPlayer")
 onready var _rain_animationPlayer = self.find_node("Rain_AnimationPlayer")
 onready var _footstep_audioStreamPlayer = self.find_node("Footstep_AudioStreamPlayer")
 onready var _item_obtain_audioStreamPlayer = self.find_node("Item_Obtain_AudioStreamPlayer")
+onready var _door_audioStreamPlayer = self.find_node("Door_AudioStreamPlayer")
+onready var _earthquake_audioStreamPlayer = self.find_node("Earthquake_AudioStreamPlayer")
 
 var rng = RandomNumberGenerator.new()
 
@@ -209,3 +211,11 @@ func play_item_obtain_sound(sfx):
 
 func fade_out_footsteps():
 	$SFX/footstep_AnimationPlayer.play("FadeOut")
+
+func play_door_SFX():
+	_door_audioStreamPlayer.stop()
+	_door_audioStreamPlayer.play()
+
+func play_earthquake():
+	_earthquake_audioStreamPlayer.play()
+	$SFX/Earthquake_AnimationPlayer.play("FadeIn")

@@ -9,6 +9,7 @@ onready var _clouds_sprite = $ParallaxBackground/ParallaxLayer/Clouds_Sprite
 onready var _stars_sprite = $ParallaxBackground/ParallaxLayer2/Stars_Sprite
 onready var _day_sky = $CanvasLayer3/DaySky
 onready var _night_sky = $CanvasLayer3/NightSky
+onready var _audio_controller = get_parent().get_node("AudioController")
 
 var _sun_moon_rotation_degrees = 0
 
@@ -18,6 +19,7 @@ var _transition_to_day = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	transition_to_night()
+	_audio_controller.play_ambiance("night_ambiance.ogg") # main starts on day 3 night
 	pass # Replace with function body.
 
 
@@ -59,15 +61,19 @@ func _physics_process(delta):
 func _on_ToNight_Area2D_area_entered(area):
 	if area.get_parent().get_parent().name == "Player":
 		transition_to_night()
+		_audio_controller.play_ambiance("night_ambiance.ogg")
 
 func _on_ToDay_Area2D2_area_entered(area):
 	if area.get_parent().get_parent().name == "Player":
 		transition_to_day()
+		_audio_controller.play_ambiance("morning_ambiance.ogg")
 
 func transition_to_night():
 	_transition_to_night = true
 	#_transition_to_day = false # in case player activates day transition before night transition finishes
+	_audio_controller.play_ambiance("night_ambiance.ogg")
 	
 func transition_to_day():
 	_transition_to_day = true
 	#_transition_to_night = false
+	_audio_controller.play_ambiance("morning_ambiance.ogg")

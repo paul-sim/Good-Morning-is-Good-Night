@@ -24,7 +24,7 @@ func _ready():
 	get_parent().find_node("Day2").modulate.a = 0
 	get_parent().find_node("Day3").modulate.a = 1
 	_audio_controller.play_music_abruptly("Day3_v02_01.ogg")
-	#_audio_controller.play_ambiance("night_ambiance.ogg")
+	#_audio_controller.play_ambiance("night_ambiance.ogg") # main starts on day 3 night
 	# transition_to_day(ConstsEnums.DAY.THREE, ConstsEnums.DAY.TWO)
 	pass
 

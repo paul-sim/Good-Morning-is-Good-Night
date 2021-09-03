@@ -1,6 +1,6 @@
 {
 	"initial" : {
-		"1" : {"name":"Monkey", "text":"that peach soda was deeeeelicious!", "animation":""},
+		"1" : {"name":"Monkey", "text":"that peach soda yesterday was deeeeelicious!", "animation":""},
 	},
 	"loop" : {
 		"1" : {"name":"Monkey", "text":"you got anymore? hehe", "animation":""},

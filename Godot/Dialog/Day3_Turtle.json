@@ -1,6 +1,6 @@
 {
 	"initial" : {
-		"1" : {"name":"Turtle", "text":"business has been slow today", "animation":""},
+		"1" : {"name":"Turtle", "text":"business has been unusually slow today", "animation":""},
 		"2" : {"name":"Turtle", "text":"i don’t know what to do..", "animation":""},
 	},
 	"loop" : {
