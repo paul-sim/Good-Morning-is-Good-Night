@@ -20,6 +20,8 @@ var _force_peach_obtain_interaction = false
 var _force_veggie_obtain_interaction = false
 var _force_sauce_obtain_interaction = false
 
+var turtle_ending_entered = false # for triggering turtle ending just once only
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent().name == "Main":
@@ -96,6 +98,11 @@ func area_exited(area) -> void:
 func _interact() -> void:
 	if _current_interactable.get_interactable_type() == ConstsEnums.INTERACTABLE_TYPE.DIALOG:
 		_is_interacting = true
+		# check if this is turtle end dialog
+		if _current_interactable.name == "Turtle":
+			if get_parent().name == "FlatWorld2" && turtle_ending_entered == false: # make sure we only enter this block once
+				turtle_ending_entered = true
+				_audio_controller.play_music("Turtle_Ending.ogg")
 		_dialog_manager.do_next_line()
 		if _forced_interactable != true: # if not checking, then we get the dialog_conitnue.ogg sfx playing twice almost simultaneously, resulting in audio clipping
 			_audio_controller.play_SFX("dialog_continue.ogg")

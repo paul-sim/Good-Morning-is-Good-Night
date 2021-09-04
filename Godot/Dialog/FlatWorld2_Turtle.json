@@ -24,11 +24,11 @@
 		"22" : {"name":"Turtle", "text":"i feel like it's already tomorrow!", "animation":""},
 		"23" : {"name":"Turtle", "text":"it couldn't come any sooner", "animation":""},
 		"24" : {"name":"Turtle", "text":"thank you again bunny", "animation":""},
-		"25" : {"name":"Turtle", "text":"you're a true friend", "animation":""},
-		"26" : {"name":"Turtle", "text":"see you, and good night!", "animation":""}
+		"25" : {"name":"Turtle", "text":"see you..", "animation":""},
+		"26" : {"name":"Turtle", "text":"and good night!", "animation":""}
 	},
 	"loop" : {
-		"1" : {"name":"Turtle", "text":"let's see.. a hint of the homemade sauce here and there..", "animation":""}
+		"1" : {"name":"Turtle", "text":"let's see.. a hint of sauce here and there..", "animation":""}
 	},
 	"tag" : ""
 }

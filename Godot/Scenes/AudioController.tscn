@@ -196,7 +196,7 @@ tracks/0/keys = {
 "values": [ -4.643, -80.0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=12]
 resource_name = "FadeOut"
 length = 3.0
 tracks/0/type = "value"
@@ -212,7 +212,7 @@ tracks/0/keys = {
 "values": [ -14.136, -80.0 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=13]
 resource_name = "Init"
 length = 0.001
 tracks/0/type = "value"
@@ -228,7 +228,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=14]
 resource_name = "FadeIn"
 length = 2.0
 tracks/0/type = "value"
@@ -244,54 +244,54 @@ tracks/0/keys = {
 "values": [ -80.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=12]
-length = 2.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -80.0, -6.058 ]
-}
-
-[sub_resource type="Animation" id=13]
-length = 2.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -80.0 ]
-}
-
-[sub_resource type="Animation" id=14]
-length = 2.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -80.0, -6.058 ]
-}
-
 [sub_resource type="Animation" id=15]
 length = 2.1
 tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, -6.058 ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, -6.058 ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 2.1
+tracks/0/type = "value"
 tracks/0/path = NodePath("Ambiance_AudioStreamPlayer2:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -304,7 +304,7 @@ tracks/0/keys = {
 "values": [ 0.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=19]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain_AudioStreamPlayer:volume_db")
@@ -319,7 +319,7 @@ tracks/0/keys = {
 "values": [ -80.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=20]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain_AudioStreamPlayer:volume_db")
@@ -387,11 +387,11 @@ anims/FadeOut = SubResource( 11 )
 
 [node name="Door_AnimationPlayer" type="AnimationPlayer" parent="SFX"]
 autoplay = "Init"
-anims/FadeOut = SubResource( 18 )
-anims/Init = SubResource( 19 )
+anims/FadeOut = SubResource( 12 )
+anims/Init = SubResource( 13 )
 
 [node name="Earthquake_AnimationPlayer" type="AnimationPlayer" parent="SFX"]
-anims/FadeIn = SubResource( 21 )
+anims/FadeIn = SubResource( 14 )
 
 [node name="Ambiance" type="Node" parent="."]
 
@@ -405,13 +405,13 @@ volume_db = -6.058
 volume_db = -80.0
 
 [node name="Ambiance_AnimationPlayer" type="AnimationPlayer" parent="Ambiance"]
-anims/Ambiance_FadeIn = SubResource( 12 )
-anims/Ambiance_FadeOut = SubResource( 13 )
+anims/Ambiance_FadeIn = SubResource( 15 )
+anims/Ambiance_FadeOut = SubResource( 16 )
 
 [node name="Ambiance_AnimationPlayer2" type="AnimationPlayer" parent="Ambiance"]
-anims/Ambiance_FadeIn = SubResource( 14 )
-anims/Ambiance_FadeOut = SubResource( 15 )
+anims/Ambiance_FadeIn = SubResource( 17 )
+anims/Ambiance_FadeOut = SubResource( 18 )
 
 [node name="Rain_AnimationPlayer" type="AnimationPlayer" parent="Ambiance"]
-anims/Rain_FadeIn = SubResource( 16 )
-anims/Rain_FadeOut = SubResource( 17 )
+anims/Rain_FadeIn = SubResource( 19 )
+anims/Rain_FadeOut = SubResource( 20 )

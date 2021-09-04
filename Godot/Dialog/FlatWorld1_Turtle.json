@@ -8,7 +8,7 @@
 		"6" : {"name":"Turtle", "text":"i miss cooking for everyone..", "animation":""},
 		"7" : {"name":"Turtle", "text":"..", "animation":""},
 		"8" : {"name":"Turtle", "text":"maybe you could go see frog?", "animation":""},
-		"9" : {"name":"Turtle", "text":"i hope they can come in, at least..?", "animation":""},
+		"9" : {"name":"Turtle", "text":"i hope he can come in, at least..?", "animation":""},
 	},
 	"loop" : {
 		"1" : {"name":"Turtle", "text":"i'll just sit here and wait for customers..", "animation":""}

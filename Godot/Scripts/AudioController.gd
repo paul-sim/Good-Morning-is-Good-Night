@@ -219,3 +219,7 @@ func play_door_SFX():
 func play_earthquake():
 	_earthquake_audioStreamPlayer.play()
 	$SFX/Earthquake_AnimationPlayer.play("FadeIn")
+
+func play_music_turtle():
+	$Music/Music_Turtle_AudioStreamPlayer.play()
+	$Music/AnimationPlayer3.play("FadeIn")

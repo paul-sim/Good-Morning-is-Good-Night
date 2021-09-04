@@ -713,14 +713,13 @@ position = Vector2( 53.7874, 97.6652 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 15 )
 hframes = 3
-frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Turtle/Sprite"]
 autoplay = "Idle"
 anims/Idle = SubResource( 21 )
 
 [node name="SpeechBubblePosition" type="Node2D" parent="Turtle"]
-position = Vector2( 53.5399, -7.74769 )
+position = Vector2( 52.1254, -65.7305 )
 
 [node name="Area2D" type="Area2D" parent="Turtle"]
 position = Vector2( -29.6646, 85.8165 )
