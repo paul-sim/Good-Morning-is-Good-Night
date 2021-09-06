@@ -124,8 +124,8 @@ anims/Audio_FadeIn = SubResource( 4 )
 anims/Wait_Time_Before_Screen_Shake_SFX = SubResource( 5 )
 
 [node name="Sprite3" type="Sprite" parent="."]
-position = Vector2( 64.4272, -32.9628 )
-scale = Vector2( 186.977, 102.885 )
+position = Vector2( 593.343, 258.076 )
+scale = Vector2( 253.091, 139.265 )
 texture = ExtResource( 2 )
 
 [node name="Fade_AnimationPlayer" type="AnimationPlayer" parent="Sprite3"]

@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var next_scene = preload("res://Scenes/Credits.tscn").instance()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -11,7 +11,5 @@ func _ready():
 	# $AudioController.play_music_abruptly("turtle_end.ogg")
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func get_next_scene():
+	return next_scene

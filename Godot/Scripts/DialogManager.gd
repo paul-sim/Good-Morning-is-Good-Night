@@ -181,6 +181,13 @@ func hide_interact_icon():
 
 func destroy_interact_icon():
 	find_node("InteractIcon").queue_free()
+	
+# when we do scene change from flatworld1 to main, we want to hide interact icon while earthquake
+# is happening. we trying destroying the icon but it crashes the game when scene change occurs (not sure why.. maybe queue_free gets
+# queued to execute after world change? which would then destroy is on Main scene.. but only crashes on html export..
+# anyway.. so we just do this instead
+func invisible_interact_icon():
+	find_node("InteractIcon").modulate.a = 0
 
 func hide_speech_bubble_arrow():
 	$Dialog/SpeechBubble/SpeechBubbleArrow.position = ConstsEnums.HIDE_VECTOR

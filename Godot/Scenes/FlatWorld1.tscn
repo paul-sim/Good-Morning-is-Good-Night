@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://Scripts/CameraFlatWorld.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=2]
@@ -61,6 +61,7 @@
 [ext_resource path="res://Sprites/Props/lantern_flags.png" type="Texture" id=59]
 [ext_resource path="res://Sprites/Props/lantern_bg.png" type="Texture" id=60]
 [ext_resource path="res://Scenes/AudioController.tscn" type="PackedScene" id=61]
+[ext_resource path="res://Scripts/FlatWorld1.gd" type="Script" id=62]
 [ext_resource path="res://Sprites/Props/time_stone.png" type="Texture" id=63]
 [ext_resource path="res://Sprites/Props/hills_bg_flat.png" type="Texture" id=64]
 [ext_resource path="res://Sprites/Props/flower.png" type="Texture" id=65]
@@ -578,6 +579,7 @@ tracks/0/keys = {
 }
 
 [node name="FlatWorld1" type="Node2D"]
+script = ExtResource( 62 )
 
 [node name="SepiaOverlay" type="Sprite" parent="."]
 visible = false
@@ -652,6 +654,7 @@ script = ExtResource( 10 )
 position = Vector2( 0, -202.656 )
 
 [node name="time_machine" type="Sprite" parent="PlayerFlatWorld"]
+modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 63 )
 offset = Vector2( 0, -200 )
 

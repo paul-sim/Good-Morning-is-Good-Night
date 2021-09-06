@@ -20,12 +20,12 @@
 		"18" : {"name":"Turtle", "text":"thank you bunny", "animation":""},
 		"19" : {"name":"Turtle", "text":"you made my day", "animation":""},
 		"20" : {"name":"Turtle", "text":"you always find a way to cheer me up", "animation":""},
-		"21" : {"name":"Turtle", "text":"haha.. wow..", "animation":""},
-		"22" : {"name":"Turtle", "text":"i feel like it's already tomorrow!", "animation":""},
-		"23" : {"name":"Turtle", "text":"it couldn't come any sooner", "animation":""},
-		"24" : {"name":"Turtle", "text":"thank you again bunny", "animation":""},
-		"25" : {"name":"Turtle", "text":"see you..", "animation":""},
-		"26" : {"name":"Turtle", "text":"and good night!", "animation":""}
+		"21" : {"name":"Turtle", "text":"haha.. isn't it weird?", "animation":""},
+		"22" : {"name":"Turtle", "text":"i feel like it's already tomorrow", "animation":""},
+		"23" : {"name":"Turtle", "text":"it couldn't come any sooner!", "animation":""},
+		"24" : {"name":"Turtle", "text":"well now..", "animation":""},
+		"25" : {"name":"Turtle", "text":"gotta start prepping for tomorrow's dinner", "animation":""},
+		"26" : {"name":"Turtle", "text":"take care and good night!", "animation":""}
 	},
 	"loop" : {
 		"1" : {"name":"Turtle", "text":"let's see.. a hint of sauce here and there..", "animation":""}

@@ -806,6 +806,7 @@ position = Vector2( -251.203, -18.8988 )
 texture = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="StaticProps/stall_mon"]
+visible = false
 position = Vector2( 235.463, -58.2712 )
 texture = ExtResource( 48 )
 color = Color( 1, 0.670588, 0.0392157, 1 )
@@ -819,6 +820,7 @@ position = Vector2( 258.967, -28.6055 )
 texture = ExtResource( 17 )
 
 [node name="Light2D" type="Light2D" parent="StaticProps/House_1"]
+visible = false
 position = Vector2( 587.573, -190.621 )
 scale = Vector2( 0.773249, 0.773249 )
 texture = ExtResource( 48 )

@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var next_scene = preload("res://Scenes/FlatWorld2.tscn").instance()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +22,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_Fade_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Fade_ToWhite":
-		get_tree().change_scene("res://Scenes/FlatWorld2.tscn")
+		# get_tree().change_scene("res://Scenes/FlatWorld2.tscn")
+		get_tree().get_root().add_child(get_next_scene())
+		self.queue_free()
 
 func _on_AnimationPlayer2_animation_finished(anim_name):
 	if anim_name == "Wait_Time_Before_Screen_Shake_SFX":
@@ -31,3 +33,6 @@ func _on_AnimationPlayer2_animation_finished(anim_name):
 		$AnimationPlayer3.play("Audio_FadeIn")
 	if anim_name == "Wait_Time_Before_Screen_Shake":
 		$Camera2D.shake()
+
+func get_next_scene():
+	return next_scene

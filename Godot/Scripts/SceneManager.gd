@@ -20,7 +20,7 @@ func change_scene(scene):
 		get_owner().find_node("PlayerFlatWorld").disable_movement()
 		get_owner().get_node("AudioController").play_earthquake()
 		$AnimationPlayer.play("GetTimeMachine")
-		$AnimationPlayer.queue("Idle")
+		#$AnimationPlayer.queue("Idle")
 		# fade out fireflies, otherwise they shine through the white screen
 		var temp_flies = get_parent().get_node("StaticProps/Ricefield_Dirt")
 		var temp_flies2 = get_parent().get_node("StaticProps/Bridge_FG")
@@ -43,14 +43,21 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 #	if anim_name == "FadeToWhite": # we faded to white so that we can do a scene change
 #		get_tree().change_scene("res://Scenes/Main.tscn")
 	if anim_name == "EndingCutscene":
-		get_tree().change_scene("res://Scenes/EndingCutscene.tscn")
+		# get_tree().change_scene("res://Scenes/EndingCutscene.tscn")
+		var current_scene = get_parent()
+		get_tree().get_root().add_child(get_parent().get_next_scene())
+		current_scene.queue_free()
 	elif anim_name == "EndGame":
-		get_tree().change_scene("res://Scenes/Credits.tscn")
+		# get_tree().change_scene("res://Scenes/Credits.tscn")
+		var current_scene = get_parent()
+		get_tree().get_root().add_child(get_parent().get_next_scene())
+		current_scene.queue_free()
 
 # bunny drops timemachine scene
 func play_ending_cutscene():
 	get_owner().get_node("InteractableManager").disable_interactions()
-	get_owner().get_node("DayManager/Day3/Frog/FrogPhysical/Area2D").queue_free() # so we don't show interact icon
+	# get_owner().get_node("DayManager/Day3/Frog/FrogPhysical/Area2D").queue_free() # so we don't show interact icon
+	get_owner().get_node("DayManager/Day3/Frog/FrogPhysical/Area2D").position = ConstsEnums.HIDE_VECTOR
 	_audio_controller.stop_music()
 	_audio_controller.stop_ambiance()
 	_audio_controller.fade_out_footsteps()
@@ -79,4 +86,8 @@ func end_game():
 
 func _on_AnimationPlayer2_animation_finished(anim_name):
 	if anim_name == "FadeToWhite": # we faded to white so that we can do a scene change
-		get_tree().change_scene("res://Scenes/Main.tscn")
+		# get_tree().change_scene("res://Scenes/Main.tscn")
+		var current_scene = get_parent()
+		get_tree().get_root().add_child(get_parent().get_next_scene())
+		current_scene.queue_free()
+		

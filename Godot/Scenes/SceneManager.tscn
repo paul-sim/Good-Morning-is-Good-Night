@@ -106,8 +106,8 @@ anims/Idle = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 4293.52, 90.563 )
-scale = Vector2( 1183.69, 549.68 )
+position = Vector2( 4705.57, 1615.39 )
+scale = Vector2( 2485.93, 1614.29 )
 z_index = 101
 texture = ExtResource( 2 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -119,7 +119,6 @@ scale = Vector2( 182.814, 103.528 )
 texture = ExtResource( 6 )
 
 [node name="white" type="Sprite" parent="."]
-visible = false
 position = Vector2( 973.427, 557.155 )
 scale = Vector2( 171.436, 99.1853 )
 z_index = 10

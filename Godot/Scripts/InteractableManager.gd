@@ -102,7 +102,7 @@ func _interact() -> void:
 		if _current_interactable.name == "Turtle":
 			if get_parent().name == "FlatWorld2" && turtle_ending_entered == false: # make sure we only enter this block once
 				turtle_ending_entered = true
-				_audio_controller.play_music("Turtle_Ending.ogg")
+				#_audio_controller.play_music("Turtle_Ending.ogg")
 		_dialog_manager.do_next_line()
 		if _forced_interactable != true: # if not checking, then we get the dialog_conitnue.ogg sfx playing twice almost simultaneously, resulting in audio clipping
 			_audio_controller.play_SFX("dialog_continue.ogg")
@@ -234,7 +234,8 @@ func _butterfly_effect():
 		# disable player controls
 		_player.disable_movement()
 		disable_interactions()
-		_dialog_manager.destroy_interact_icon() # so that players won't see the interact icon
+		#_dialog_manager.destroy_interact_icon() # THIS GLITCHES THE GAME AT SCENE CHANGE. originally intended so that players won't see the interact icon
+		_dialog_manager.invisible_interact_icon()
 		# change scene to circle world
 		_scene_manager.change_scene("Main.tscn")
 	elif _current_interactable.name == "Boxes": # day 1/2/3 when this triggers
